@@ -28,7 +28,7 @@ The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**,
 
 ---
 
-<details open>
+<details>
   <summary>Level 2</summary>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level2_paint.png?raw=true" alt="level2">
   <br>
