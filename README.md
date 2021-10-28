@@ -78,6 +78,7 @@ Mask /30: 11111111.11111111.11111111.11111100
 
 We can see that this binary number corresponds to the decimal *255.255.255.252*, therefore it is identical to the mask found on *Interface C1*.
 <br>
+<br>
 The answers can then be any addresses, as long as they meet the following conditions:
 * The network address (first 30 bits) must be identical for *Client D* and *Client C*.
 * The host bits (last 2 bits) cannot be all 1, nor all 0.
