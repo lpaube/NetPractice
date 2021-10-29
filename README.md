@@ -87,9 +87,22 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ---
 
-<details>
+<details open>
   <summary>Level 3</summary>
   <img>
+
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **1.** *Client A*, *Client B*, and *Client C* are all on the same network. Therefore, they must all have the same subnet mask. Since *Client C* already has the mask *255.255.255.128*, the mask for *Interface B1* and for *Interface A1* will also be *255.255.255.128* (or in slash notation: */25*).
+  <br>
+  <br>
+  The IP address of *Interface B1* and *Interface C1* must be on the same network range as the IP of *Client A*. This range is:
+  <center>
+
+  ```
+  104.198.241.0 - 104.198.241.128 
+  ```
+  </center>
+  Excluding of course the network address and the broadcast address.
 </details>
 
 ---
