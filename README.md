@@ -220,7 +220,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
   A destination of *40.178.145.227/25* is equivalent to the destination address *40.178.145.128/25*, since the mask of */25* will turn all the bits after the 25th to 0 to get the destination's network address.
-
 </details>
 
 ---
@@ -257,19 +256,53 @@ The answers can then be any addresses, as long as they meet the following condit
   To calculate the possible ranges of a mask:
   <br>
   https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=93.198.14.2&ctype=ipv4&printit=0&x=97&y=13
+</details>
 
+---
+
+<details>
+  <summary>Level 8</summary>
+  <br>
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level8_paint.png?raw=true" alt="level8">
+  <br>
+  <br>
+
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **1.** The hosts *Client C* and *Client D* will send packets to the internet, then the internet will respond by sending packets all the way back to the initial sender. To send these packets, the internet uses the destination *49.175.13.0/26* to send the packets to the networks in the range of ``49.175.13.0 - 49.175.13.63``.
+  <br>
+  <br>
+  All the receiving networks must be in this range, without overlapping each other.
+  <br>
+  <br>
+
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **2.** On *Interface R23* and *Interface R22* we use the mask *255.255.255.240* (or */28*), to conveniently split the range of */26* from the destination address, into 4 separate ranges. This separation of 4 is necessary since we have the following 3 networks that must not overlap:
+  <br>
+
+  1. *Router R1* to *Router R2*.
+  2. *Router R2* to *Client C*.
+  3. *Router R2* to *Client D*.
+
+  Each of these networks can then be attributed one of the following IP range with a mask of */28*:
+  ```
+  49.175.13.0 - 49.175.13.15
+  49.175.13.16 - 49.175.13.31
+  49.175.13.32 - 49.175.13.47
+  49.175.13.48 - 49.175.13.63
+  ```
+  Note that the network address (first) and the broadcast address (last) must be excluded from each range.
+  <br>
+  <br>
+
+![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+**3.** The destination and next hop for the internet is already entered. We only need to enter the next hop for the *Router R2*, which is the IP on the *Interface R21*.
 </details>
 
 ---
 
 <details open>
-  <summary>Level 8</summary>
+  <summary>Level 9</summary>
   <br>
-  <img src="" alt="level8">
+  <img src="" alt="level9">
   <br>
   <br>
-
-
-</details>
-
----
