@@ -1,4 +1,4 @@
-# NetPractice Guide
+# Guide to NetPractice
 
 <details>
   <summary>Level 1</summary>
