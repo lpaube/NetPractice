@@ -306,3 +306,16 @@ The answers can then be any addresses, as long as they meet the following condit
   <img src="" alt="level9">
   <br>
   <br>
+
+  This level is quite straight-forward since the internet does not initially send its packets to a specific network. Therefore, the separate networks do no need to share a common address range. I would suggest to simply follow the 6 goals of the level one by one until the level is completed.
+  <br>
+  Remember to not use the network addresses from the reserved private IP ranges.
+
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **1.** Goal 3 states that we must connect *meson* with the *internet*. The *internet* will then have to respond to *meson*, so we enter *meson's* IP address in the *internet's* destination.
+  <br>
+  <br>
+  Goal 6 state that we must connect *cation* with the *internet*, so we enter *cation's* IP address in the *internet's* destination.
+  <br>
+  <br>
+  It is normal to have an empty field for the 3rd destination of the *internet*, and in *Router R1's* destination. Not all fields of the routing tables need to be filled.
