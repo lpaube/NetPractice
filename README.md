@@ -225,9 +225,12 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ---
 
-<details open>
+<details>
   <summary>Level 7</summary>
   <br>
   <img src="" alt="level7">
   <br>
   <br>
+</details>
+
+---
