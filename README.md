@@ -326,7 +326,7 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ---
 
-<details open>
+<details>
   <summary>Level 10</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level10_paint.png?raw=true" alt="level10">
