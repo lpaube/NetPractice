@@ -300,10 +300,10 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ---
 
-<details open>
+<details>
   <summary>Level 9</summary>
   <br>
-  <img src="" alt="level9">
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level9_paint.png?raw=true" alt="level9">
   <br>
   <br>
 
@@ -319,3 +319,15 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
   It is normal to have an empty field for the 3rd destination of the *internet*, and in *Router R1's* destination. Not all fields of the routing tables need to be filled.
+</details>
+
+---
+
+<details open>
+  <summary>Level 10</summary>
+  <br>
+  <img src="" alt="level10">
+  <br>
+  <br>
+
+</details>
