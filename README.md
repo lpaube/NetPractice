@@ -202,7 +202,7 @@ The answers can then be any addresses, as long as they meet the following condit
 
   We now only need to find out if the 25th bit is a 1 or a 0.
   <br>
-  If we convert the number 227 to binary, we get **11100011**. The first digit, which corresponds to the 25th bit, is a 1. Since only the 25th bit is part of the network address, and not the remaining 7 bits, we get **10000000** for the last byte of the network address, which is 128 in decimal.
+  If we convert the number 227 to binary, we get ``11100011``. The first digit, which corresponds to the 25th bit, is a 1. Since only the 25th bit is part of the network address and not the remaining 7 bits, we get ``10000000`` for the last byte of the network address, which is 128 in decimal.
   <br>
   <br>
   The full network address is:
@@ -228,9 +228,48 @@ The answers can then be any addresses, as long as they meet the following condit
 <details>
   <summary>Level 7</summary>
   <br>
-  <img src="" alt="level7">
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level7_paint.png?raw=true" alt="level7">
   <br>
   <br>
+
+  This level introduces the concept of **overlaps**. The range of IP addresses of a network must not overlap the range of IP addresses of a separate network. Networks are separated by routers.
+  <br>
+  <br>
+
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **1.** We have 3 separate networks:
+  <br>
+
+  1. Between *Client A* and *Router R1*.
+  2. Between *Router R1* and *Router R2*.
+  3. Between *Router R2* and *Client C*.
+
+  For *Interface A1*, we cannot chose our IP address freely since the IP of *Interface R11* is already entered. Also, if we give it a mask of */24*, the IP addresses range will overlap with the range of *Interface R12*, which is already entered. They would both be in the range of *93.198.14.0 - 93.198.14.255*.
+  <br>
+  <br>
+  Since we need addresses for 3 separate networks, it is convenient to split the last bytes of the address in 4 or more addresses ranges. We do this by using the mask of */26* or higher. The mask of */28* for example will give us 16 ranges, from which we use the following 3:
+  ```
+  93.198.14.1 - 93.198.14.14    (Client A to Router R1)
+  93.198.14.65 - 93.198.14.78   (Router R1 to Router R2)
+  93.198.14.241 - 93.198.14.254 (Router R2 to Client C)
+  ```
+
+  To calculate the possible ranges of a mask:
+  <br>
+  https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=93.198.14.2&ctype=ipv4&printit=0&x=97&y=13
+
+</details>
+
+---
+
+<details open>
+  <summary>Level 8</summary>
+  <br>
+  <img src="" alt="level8">
+  <br>
+  <br>
+
+
 </details>
 
 ---
