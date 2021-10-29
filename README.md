@@ -87,9 +87,11 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ---
 
-<details open>
+<details>
   <summary>Level 3</summary>
-  <img>
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level3_paint.png?raw=true" alt="level3">
+  <br>
+  <br>
 
   ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** *Client A*, *Client B*, and *Client C* are all on the same network. Therefore, they must all have the same subnet mask. Since *Client C* already has the mask *255.255.255.128*, the mask for *Interface B1* and for *Interface A1* will also be *255.255.255.128* (or in slash notation: */25*).
@@ -103,6 +105,17 @@ The answers can then be any addresses, as long as they meet the following condit
   ```
   </center>
   Excluding of course the network address and the broadcast address.
+</details>
+
+---
+
+<details open>
+  <summary>Level 4</summary>
+  <img src="" alt="level4">
+  <br>
+  <br>
+
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
 </details>
 
 ---
