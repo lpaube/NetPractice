@@ -1,4 +1,4 @@
-# NetPractice
+# NetPractice Guide
 
 <details>
   <summary>Level 1</summary>
@@ -202,7 +202,7 @@ The answers can then be any addresses, as long as they meet the following condit
 
   We now only need to find out if the 25th bit is a 1 or a 0.
   <br>
-  If we convert the number 227 to binary, we get **11100011**. The first digit, which corresponds to the 25th bit, is a 1. Since only the 25th bit is part of the network address, and not the remaining 7 bits, we get **10000000** for the last bytes of the network address, which is 128 in decimal.
+  If we convert the number 227 to binary, we get **11100011**. The first digit, which corresponds to the 25th bit, is a 1. Since only the 25th bit is part of the network address, and not the remaining 7 bits, we get **10000000** for the last byte of the network address, which is 128 in decimal.
   <br>
   <br>
   The full network address is:
@@ -219,7 +219,7 @@ The answers can then be any addresses, as long as they meet the following condit
   We can now put this address of **40.178.145.128** in the Internet destination. The **/25** following the destination address represents the mask applied to its address.
   <br>
   <br>
-  A destination of *40.178.145.227/25* is equivalent to the destination address *40.178.145.128/25*, since the mask of */25* will turn to 0 all the bits after the 25th to determine the destination's network address.
+  A destination of *40.178.145.227/25* is equivalent to the destination address *40.178.145.128/25*, since the mask of */25* will turn all the bits after the 25th to 0 to get the destination's network address.
 
 </details>
 
