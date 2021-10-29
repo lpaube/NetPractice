@@ -2,6 +2,7 @@
 
 <details>
   <summary>Level 1</summary>
+  <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level1_paint.png?raw=true" alt="level1">  
   <br>
   <br>
@@ -30,6 +31,7 @@ The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**,
 
 <details>
   <summary>Level 2</summary>
+  <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level2_paint.png?raw=true" alt="level2">
   <br>
   <br>
@@ -89,6 +91,7 @@ The answers can then be any addresses, as long as they meet the following condit
 
 <details>
   <summary>Level 3</summary>
+  <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level3_paint.png?raw=true" alt="level3">
   <br>
   <br>
@@ -115,6 +118,7 @@ The answers can then be any addresses, as long as they meet the following condit
 
 <details>
   <summary>Level 4</summary>
+  <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level4_paint.png?raw=true" alt="level4">
   <br>
   <br>
@@ -145,6 +149,7 @@ The answers can then be any addresses, as long as they meet the following condit
 
 <details>
   <summary>Level 5</summary>
+  <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level5_paint.png?raw=true" alt="level5">
   <br>
   <br>
@@ -166,9 +171,10 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ---
 
-<details open>
+<details>
   <summary>Level 6</summary>
-  <img src="" alt="level6">
+  <br>
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level6_paint.png?raw=true" alt="level6">
   <br>
   <br>
 
@@ -184,7 +190,7 @@ The answers can then be any addresses, as long as they meet the following condit
   **1.** The **next hop** of the internet is already entered, and matches the IP address of the *Interface R2*. Therefore we only need to bother with the destination of the internet.
   <br>
   <br>
-  The internet must send its packets to *Client A*, and to do so, the internet's destination must match the network address of *Client A*. Let's find the network address of *Client A*:
+  The internet must send its packets to *Client A*. To do so, the internet's destination must match the network address of *Client A*. Let's find the network address of *Client A*:
   <br>
   *Client A*'s mask is *255.255.255.128*, which is equivalent to */25*. This means that the first 25 bits of its IP address is its network address. We know then that the first 3 bytes (24 bits) of its IP address makes part of its network address:
   <center>
@@ -213,8 +219,15 @@ The answers can then be any addresses, as long as they meet the following condit
   We can now put this address of **40.178.145.128** in the Internet destination. The **/25** following the destination address represents the mask applied to its address.
   <br>
   <br>
-  A destination of *40.178.145.227/25* is equivalent to the destination address *40.178.145.128/25*, since the mask of */25* will cutout all the bits after the 25th bit to determine the destination's network address.
+  A destination of *40.178.145.227/25* is equivalent to the destination address *40.178.145.128/25*, since the mask of */25* will turn to 0 all the bits after the 25th to determine the destination's network address.
 
 </details>
 
 ---
+
+<details open>
+  <summary>Level 7</summary>
+  <br>
+  <img src="" alt="level7">
+  <br>
+  <br>
