@@ -113,7 +113,7 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ---
 
-<details open>
+<details>
   <summary>Level 4</summary>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level4_paint.png?raw=true" alt="level4">
   <br>
@@ -129,11 +129,36 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   The IP address of *Interface B1* and *Interface R1* must have the same network address as the IP address of *Interface A1*. With a subnet of */24*, the possible range is:
   <center>
-  
+
   ```
   85.17.5.0 - 85.17.5.255
   ```
   </center>
+  Excluding the network address and the broadcast address.
+  <br>
+  <br>
+
+  Note that we did not interact with the router *Interface R2* and *Interface R3*, since none of our communications had to reach these sides of the router.
 </details>
 
 ---
+
+<details open>
+  <summary>Level 5</summary>
+  <img src="" alt="level5">
+  <br>
+  <br>
+
+  This level introduces **routes**. A route contains 2 fields, the first one is the **destination** of outbound packets, the second one is the **next hop** of the packets.
+  <br>
+  The **destination** *default* is equivalent to *0.0.0.0/0*, which will send the packets undiscriminately to the first network address it encounters. A destination address of *122.3.5.3/24* would send the packets to the network *122.3.5.0*.
+  <br>
+  The **next hop** is the IP address of the next interface to which the interface of the current machine must send its packets. 
+  <br>
+  <br>
+
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **1.** *Client A* only has 1 route through which it can send its packets. There is no use specifying a numbered destination. The destination *default* will send the packets to the only path available.
+  <br>
+  <br>
+  The next hop address must be the IP address of the next interface on the packets' way. The next interface is *Interface R1*, with the IP address of *54.117.30.126*. Note that the next interface is not *Interface A1*, since this is the sender's own interface.
