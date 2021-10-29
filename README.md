@@ -7,7 +7,7 @@
   <br>
 
 ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
-**1.** Since *Client A* and *Client B* are on the same private network, their IP address must represent the same network in accordance to the subnet mask.
+**1.** Since *Client A* and *Client B* are on the same network, their IP address must represent the same network in accordance to the subnet mask.
 <br>
 The subnet mask is *255.255.255.0*, which means that the first 3 bytes of the IP address represent the network, and the 4th byte represents the host. Since we are on the same network, only the host can change. 
 <br>
@@ -143,9 +143,9 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ---
 
-<details open>
+<details>
   <summary>Level 5</summary>
-  <img src="" alt="level5">
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level5_paint.png?raw=true" alt="level5">
   <br>
   <br>
 
@@ -153,7 +153,7 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   The **destination** *default* is equivalent to *0.0.0.0/0*, which will send the packets undiscriminately to the first network address it encounters. A destination address of *122.3.5.3/24* would send the packets to the network *122.3.5.0*.
   <br>
-  The **next hop** is the IP address of the next interface to which the interface of the current machine must send its packets. 
+  The **next hop** is the IP address of the next  router (or internet) interface to which the interface of the current machine must send its packets. 
   <br>
   <br>
 
@@ -161,4 +161,60 @@ The answers can then be any addresses, as long as they meet the following condit
   **1.** *Client A* only has 1 route through which it can send its packets. There is no use specifying a numbered destination. The destination *default* will send the packets to the only path available.
   <br>
   <br>
-  The next hop address must be the IP address of the next interface on the packets' way. The next interface is *Interface R1*, with the IP address of *54.117.30.126*. Note that the next interface is not *Interface A1*, since this is the sender's own interface.
+  The next hop address must be the IP address of the next router's interface on the packets' way. The next interface is *Interface R1*, with the IP address of *54.117.30.126*. Note that the next interface is not *Interface A1*, since this is the sender's own interface.
+</details>
+
+---
+
+<details open>
+  <summary>Level 6</summary>
+  <img src="" alt="level6">
+  <br>
+  <br>
+
+  This level introduces the **internet**. The internet behaves like a router. However, if an interface is connected directly or indirectly to the internet, it **cannot** have an IP address in the following reserved private IP ranges:
+
+
+  ```
+  192.168.0.0 - 192.168.255.255 (65,536 IP addresses)
+  172.16.0.0 - 172.31.255.255   (1,048,576 IP addresses)
+  10.0.0.0 - 10.255.255.255     (16,777,216 IP addresses)
+  ```
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **1.** The **next hop** of the internet is already entered, and matches the IP address of the *Interface R2*. Therefore we only need to bother with the destination of the internet.
+  <br>
+  <br>
+  The internet must send its packets to *Client A*, and to do so, the internet's destination must match the network address of *Client A*. Let's find the network address of *Client A*:
+  <br>
+  *Client A*'s mask is *255.255.255.128*, which is equivalent to */25*. This means that the first 25 bits of its IP address is its network address. We know then that the first 3 bytes (24 bits) of its IP address makes part of its network address:
+  <center>
+
+  ```
+  40.178.145.?
+  ```
+  </center>
+
+  We now only need to find out if the 25th bit is a 1 or a 0.
+  <br>
+  If we convert the number 227 to binary, we get **11100011**. The first digit, which corresponds to the 25th bit, is a 1. Since only the 25th bit is part of the network address, and not the remaining 7 bits, we get **10000000** for the last bytes of the network address, which is 128 in decimal.
+  <br>
+  <br>
+  The full network address is:
+  <center>
+
+  ```
+  40.178.145.128
+  ```
+  </center>
+
+  With a range of *40.178.145.129 - 40.178.145.254* for its host addresses.
+  <br>
+  <br>
+  We can now put this address of **40.178.145.128** in the Internet destination. The **/25** following the destination address represents the mask applied to its address.
+  <br>
+  <br>
+  A destination of *40.178.145.227/25* is equivalent to the destination address *40.178.145.128/25*, since the mask of */25* will cutout all the bits after the 25th bit to determine the destination's network address.
+
+</details>
+
+---
