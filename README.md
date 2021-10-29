@@ -93,6 +93,10 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
+  This exercise introduces the use of the **switch** (*Switch S* in this example). The switch links multiple hosts of the same network together.
+  <br>
+  <br>
+
   ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** *Client A*, *Client B*, and *Client C* are all on the same network. Therefore, they must all have the same subnet mask. Since *Client C* already has the mask *255.255.255.128*, the mask for *Interface B1* and for *Interface A1* will also be *255.255.255.128* (or in slash notation: */25*).
   <br>
@@ -111,11 +115,25 @@ The answers can then be any addresses, as long as they meet the following condit
 
 <details open>
   <summary>Level 4</summary>
-  <img src="" alt="level4">
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level4_paint.png?raw=true" alt="level4">
+  <br>
+  <br>
+
+  This exercise introduces the **router**. The router is used to link multiple networks together. It does so with the use of multiple interfaces (*Interface R1*, *Interface R2*, and *Interface R3* in this example).
   <br>
   <br>
 
   ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **1.** Since none of the masks on *Interface B1*, *Interface A1*, and *Interface R1* are entered, we are free to chose our own subnet mask. A mask of **/24** is ideal as it leaves us with the entire 4th byte for the host address, and does not require binary calculations to find the range of possible host addresses.
+  <br>
+  <br>
+  The IP address of *Interface B1* and *Interface R1* must have the same network address as the IP address of *Interface A1*. With a subnet of */24*, the possible range is:
+  <center>
+  
+  ```
+  85.17.5.0 - 85.17.5.255
+  ```
+  </center>
 </details>
 
 ---
