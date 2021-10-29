@@ -1,6 +1,6 @@
 # Guide to NetPractice
 
-<details>
+<details open>
   <summary>Level 1</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level1_paint.png?raw=true" alt="level1">  
