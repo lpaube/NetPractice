@@ -329,15 +329,42 @@ The answers can then be any addresses, as long as they meet the following condit
 <details open>
   <summary>Level 10</summary>
   <br>
-  <img src="" alt="level10">
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level10_paint.png?raw=true" alt="level10">
   <br>
   <br>
 
-  In this level, we have to deal with 4 different networks:
+  In this level, there are 4 different networks:
   <br>
 
   1. *Router R1* to *Switch S1*
   2. *Router R1* to *Router R2*
   3. *Router R2* to *Client H4*
   4. *Router R2* to *Client H3*
+  <br>
+
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **1.** The internet must be able to send its packets to all the hosts, so its destination must cover the range of networks of all the hosts.
+  <br>
+  <br>
+  *Interface R11* and *Interface R13* already have an IP adress entered. This IP address only differs in its last byte. *Interface R11* has for last byte **1**, and *Interface R13* has for last byte **254**. To cover this wide range to IP addresses, we take a mask of **/24** for the *internet's* destination. This destination will cover a range of ``70.101.30.0 - 70.101.30.255``.
+  <br>
+  <br>
+
+  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
+  **2.** When chosing the IP addresses, we must make sure of 2 things:
+  <br>
+
+  1. The IP address is covered by the *internet* destination.
+  2. The IP addresses range of the various networks do not overlap.
+  <br>
+  
+  With the IP addresses already entered (greyed out), let's examine the ranges covered by the various networks:
+  <br>
+
+  1. *Router R1* to *Switch S1* - Covers the range **70.101.30.0 - 70.101.30.127** (mask /25).
+  2. *Router R2* to *Client H4* - Covers the range **70.101.30.128 - 70.101.30.191** (mask /26).
+  3. *Router R1* to *Router R2* - Covers the range **70.101.30.252 - 70.101.30.255** (mask /30).
+  4. *Router R2* to *Client H3* - ??? (mask ???).
+
+  The only IP addresses left for the network "Router R2 to Client H3" are **70.101.30.192 - 70.101.30.251**. We can pick any mask that will let us take 2 IP addresses from that range to put in *Interface R22* and *Interface R31*.
 </details>
