@@ -3,13 +3,13 @@ Guide to NetPractice
 
 ## Table of Contents
 - [Levels](#levels)
-- [Important Concepts](#important-concepts)
-  - [IP Address](#ip-address)
-  - [Subnet Mask](#subnet-mask)
+- [Important concepts](#important-concepts)
+  - [IP address](#ip-address)
+  - [Subnet mask](#subnet-mask)
   - [Switch](#switch)
   - Router
   - Routing table
-  - Overlaps (maybe)
+  - Network address overlap (maybe)
  
 
 ## Levels
@@ -387,6 +387,24 @@ The answers can then be any addresses, as long as they meet the following condit
 ## Important Concepts
 
 ### IP Address
+
+IP is part of an internet protocol suite, which also includes the transmission control protocol. Together, these two are known as TCP/IP. The internet protocol suite governs rules for packetizing, addressing, transmitting, routing, and receiving data over networks.
+
+IP addressing is a logical means of assigning addresses to devices on a network. Each device connected to the internet requires a unique IP address.
+
+An IP address has two parts; one part identifies the host such as a computer or other device, and the other part identifies the network it belongs to. TCP/IP uses a [subnet mask](#subnet-mask) to separate them.
+
+#### IPv4 vs. IPv6
+IP addresses come in 2 main versions--IPv4 and IPv6.
+<img src="" alt="ip_versions">
+<br>
+
+Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. In NetPractice, only IPv4 addresses are used.
+
+
+
+
+
 
 ### Subnet Mask
 
