@@ -390,6 +390,12 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ### IP Address
 
+</br>
+<p align="center">
+  <kbd><img src="" height=250 alt="mask"></kbd>
+</p>
+</br>
+
 IP is part of an internet protocol suite, which also includes the transmission control protocol. Together, these two are known as TCP/IP. The internet protocol suite governs rules for packetizing, addressing, transmitting, routing, and receiving data over networks.
 
 IP addressing is a logical means of assigning addresses to devices on a network. Each device connected to the internet requires a unique IP address.
@@ -407,6 +413,7 @@ IP addresses come in 2 versions--IPv4 and IPv6:
 Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. However, only IPv4 addresses are used in NetPractice.
 
 #### Public Address vs. Private Address
+
 A public IP address is an IP address that can be accessed directly over the internet and is assigned to your network router by your internet service provider (ISP). A public (or external) IP address helps you connect to the internet from inside your network, to outside your network.
 
 A private IP address is the address your network router assigns to your device. Each device within the same network is assigned a unique private IP address (sometimes called a private network address) — this is how devices on the same internal network talk to each other.
@@ -417,13 +424,42 @@ A private IP address is the address your network router assigns to your device. 
 </br>
 
 ### Subnet Mask
+
 </br>
 <p align="center">
-  <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/mask1.png?raw=true" height=200 alt="mask"></kbd>
+  <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/mask1.png?raw=true" height=250 alt="mask"></kbd>
 </p>
 </br>
 
 A subnet mask is a 32 bits (4 bytes) address used to distinguish between a network address and a host address in the IP address. It defines the range of IP addresses that can be used within a network or a subnet.
+
+#### Example
+
+The *Interface A1* above has the following properties:
+```
+IP address: 104.198.241.125
+Mask:       255.255.255.128  
+```
+
+To determine which portion of the IP address is the network address and which is the host address, we need to apply the mask to the IP address. Let's first convert the mask to its binary form:
+```
+Mask: 11111111.11111111.11111111.10000000
+```
+
+The bits of a mask that are 1 represent the network address, while the remaining bits of a mask that are 0 represent the host address. Let's now convert the IP address to its binary form:
+```
+IP address: 01101000.11000110.11110001.01111101
+Mask:       11111111.11111111.11111111.10000000
+```
+
+We can now apply the mask to the IP address through a bitwise AND to find the network address of the IP:
+```
+Network address: 01101000.11000110.11110001.00000000
+```
+
+Which translates to a network address of ``104.198.241.0``.
+
+
 
 ### Switch
 
