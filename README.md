@@ -9,9 +9,9 @@ Guide to NetPractice
   - [IP address](#ip-address)
   - [Subnet mask](#subnet-mask)
   - [Switch](#switch)
-  - Router
-  - Routing table
-  - Network address overlap (maybe)
+  - [Router](#router)
+  - [Routing table](#routing-table)
+  - Network address overlap
  
 
 ## Levels
@@ -399,18 +399,16 @@ An IP address has two parts; one part identifies the host such as a computer or 
 #### IPv4 vs. IPv6
 IP addresses come in 2 versions--IPv4 and IPv6:
 <br>
-<br>
 <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/ip_version.png?raw=true" height=100 alt="ip_versions"></kbd>
 <br>
 
-Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. Only IPv4 addresses are used in NetPractice.
+Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. However, only IPv4 addresses are used in NetPractice.
 
 #### Public Address vs. Private Address
 A public IP address is an IP address that can be accessed directly over the internet and is assigned to your network router by your internet service provider (ISP). A public (or external) IP address helps you connect to the internet from inside your network, to outside your network.
 
 A private IP address is the address your network router assigns to your device. Each device within the same network is assigned a unique private IP address (sometimes called a private network address) — this is how devices on the same internal network talk to each other.
 
-</br>
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
 </div>
@@ -418,4 +416,9 @@ A private IP address is the address your network router assigns to your device. 
 
 ### Subnet Mask
 
+
+
 ### Switch
+
+
+### Router
