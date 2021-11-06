@@ -1,5 +1,18 @@
-# Guide to NetPractice
+Guide to NetPractice
+====================
 
+## Table of Contents
+- [Levels](#levels)
+- [Important Concepts](#important-concepts)
+  - [IP Address](#ip-address)
+  - [Subnet Mask](#subnet-mask)
+  - [Switch](#switch)
+  - Router
+  - Routing table
+  - Overlaps (maybe)
+ 
+
+## Levels
 <details open>
   <summary>Level 1</summary>
   <br>
@@ -368,3 +381,13 @@ The answers can then be any addresses, as long as they meet the following condit
 
   The only IP addresses left for the network "Router R2 to Client H3" are **70.101.30.192 - 70.101.30.251**. We can pick any mask that will let us take 2 IP addresses from that range to put in *Interface R22* and *Interface R31*.
 </details>
+
+---
+
+## Important Concepts
+
+### IP Address
+
+### Subnet Mask
+
+### Switch
