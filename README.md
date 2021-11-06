@@ -96,7 +96,7 @@ IP address | 01101000.11000110.11110001.01111101
 Mask       | 11111111.11111111.11111111.10000000
 ```
 
-We can now apply the mask to the IP address through a <a href=https://en.wikipedia.org/wiki/Bitwise_operation#AND" target="_blank">bitwise AND</a> to find the network address of the IP:
+We can now apply the mask to the IP address through a [bitwise AND](https://en.wikipedia.org/wiki/Bitwise_operation#AND) to find the network address of the IP:
 ```
 Network address | 01101000.11000110.11110001.00000000
 ```
