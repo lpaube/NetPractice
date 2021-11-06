@@ -399,9 +399,9 @@ An IP address has two parts; one part identifies the host such as a computer or 
 #### IPv4 vs. IPv6
 IP addresses come in 2 versions--IPv4 and IPv6:
 <br>
-<center>
-<kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/ip_version.png?raw=true" height=100 alt="ip_versions"></kbd>
-</center>
+<p align="center">
+  <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/ip_version.png?raw=true" height=100 alt="ip_versions"></kbd>
+</p>
 <br>
 
 Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. However, only IPv4 addresses are used in NetPractice.
@@ -417,9 +417,11 @@ A private IP address is the address your network router assigns to your device. 
 </br>
 
 ### Subnet Mask
-<center>
-<kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/mask1.png?raw=true" height=200 alt="mask"></kbd>
-</center>
+</br>
+<p align="center">
+  <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/mask1.png?raw=true" height=200 alt="mask"></kbd>
+</p>
+</br>
 
 A subnet mask is a 32 bits (4 bytes) address used to distinguish between a network address and a host address in the IP address. It defines the range of IP addresses that can be used within a network or a subnet.
 
