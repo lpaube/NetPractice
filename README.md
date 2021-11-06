@@ -392,7 +392,7 @@ The answers can then be any addresses, as long as they meet the following condit
 
 </br>
 <p align="center">
-  <kbd><img src="" height=250 alt="mask"></kbd>
+  <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/ip1.png?raw=true" height=250 alt="mask"></kbd>
 </p>
 </br>
 
@@ -422,6 +422,8 @@ A private IP address is the address your network router assigns to your device. 
   <b><a href="#top">↥ back to top</a></b>
 </div>
 </br>
+
+---
 
 ### Subnet Mask
 
@@ -459,7 +461,12 @@ Network address: 01101000.11000110.11110001.00000000
 
 Which translates to a network address of ``104.198.241.0``.
 
+<div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
 
+---
 
 ### Switch
 
