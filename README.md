@@ -418,6 +418,13 @@ A public IP address is an IP address that can be accessed directly over the inte
 
 A private IP address is the address your network router assigns to your device. Each device within the same network is assigned a unique private IP address (sometimes called a private network address) — this is how devices on the same internal network talk to each other.
 
+When a network is connected to the internet, it cannot use an IP address from the reserved private IP addresses. The following ranges are reserved for private IP addresses:
+```
+192.168.0.0 – 192.168.255.255 (65,536 IP addresses)
+172.16.0.0 – 172.31.255.255   (1,048,576 IP addresses)
+10.0.0.0 – 10.255.255.255     (16,777,216 IP addresses)
+```
+
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
 </div>
@@ -435,31 +442,55 @@ A private IP address is the address your network router assigns to your device. 
 
 A subnet mask is a 32 bits (4 bytes) address used to distinguish between a network address and a host address in the IP address. It defines the range of IP addresses that can be used within a network or a subnet.
 
-#### Example
+#### Finding the network address
 
 The *Interface A1* above has the following properties:
 ```
-IP address: 104.198.241.125
-Mask:       255.255.255.128  
+IP address | 104.198.241.125
+Mask       | 255.255.255.128  
 ```
 
-To determine which portion of the IP address is the network address and which is the host address, we need to apply the mask to the IP address. Let's first convert the mask to its binary form:
+To determine which portion of the IP address is the network address, we need to apply the mask to the IP address. Let's first convert the mask to its binary form:
 ```
-Mask: 11111111.11111111.11111111.10000000
+Mask | 11111111.11111111.11111111.10000000
 ```
 
 The bits of a mask that are 1 represent the network address, while the remaining bits of a mask that are 0 represent the host address. Let's now convert the IP address to its binary form:
 ```
-IP address: 01101000.11000110.11110001.01111101
-Mask:       11111111.11111111.11111111.10000000
+IP address | 01101000.11000110.11110001.01111101
+Mask       | 11111111.11111111.11111111.10000000
 ```
 
 We can now apply the mask to the IP address through a bitwise AND to find the network address of the IP:
 ```
-Network address: 01101000.11000110.11110001.00000000
+Network address | 01101000.11000110.11110001.00000000
 ```
 
 Which translates to a network address of ``104.198.241.0``.
+
+#### Finding the range of host addresses
+
+To determine what host addresses we can use on our network, we have to use the bits of our IP address dedicated to the host address. Let's use our previous IP address and mask:
+```
+IP address | 01101000.11000110.11110001.01111101
+Mask       | 11111111.11111111.11111111.10000000
+```
+
+The possible range of our host addresses are expressed through the last 7 bits of the mask which are all 0. Therefore, the range of host addresses is:
+```
+BINARY  | 0000000 - 1111111
+DECIMAL | 0 - 127
+```
+
+To get the range of possible IP addresses for our network, we add the range of host address to the network address. Our range of possible IP addresses becomes ``104.198.241.0 - 104.198.241.127``.
+
+**HOWEVER**, the extremities of the range are reserved for specific uses and cannot be given to an interface:
+```
+104.198.241.0   | Reserved to represent the network address.
+104.198.241.127 | Reserved as the broadcast address; used to send packets to all hosts.
+``` 
+
+Therefore, our real IP range becomes ``104.198.241.1 - 104.198.241.126``.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
