@@ -12,7 +12,9 @@ Guide to NetPractice
   - [Routing table](#routing-table)
   - Network address overlap
 - [Levels with solutions](#levels)
- 
+</br>
+</br>
+
 ## Important Concepts
 
 ### IP Address
@@ -94,7 +96,7 @@ IP address | 01101000.11000110.11110001.01111101
 Mask       | 11111111.11111111.11111111.10000000
 ```
 
-We can now apply the mask to the IP address through a [bitwise AND](https://en.wikipedia.org/wiki/Bitwise_operation#AND) to find the network address of the IP:
+We can now apply the mask to the IP address through a <a href=https://en.wikipedia.org/wiki/Bitwise_operation#AND" target="_blank">bitwise AND</a> to find the network address of the IP:
 ```
 Network address | 01101000.11000110.11110001.00000000
 ```
@@ -120,20 +122,19 @@ DECIMAL | 0 - 127
 To get the range of possible IP addresses for our network, we add the range of host address to the network address. Our range of possible IP addresses becomes ``104.198.241.0 - 104.198.241.127``.
 
 <ins>HOWEVER</ins>, the extremities of the range are reserved for specific uses and cannot be given to an interface:
-```
-104.198.241.0   | Reserved to represent the network address.
-104.198.241.127 | Reserved as the broadcast address; used to send packets to all hosts.
-``` 
+
+* 104.198.241.0   | Reserved to represent the network address.
+* 104.198.241.127 | Reserved as the broadcast address; used to send packets to all hosts of a network.
 
 Therefore, our real IP range becomes ``104.198.241.1 - 104.198.241.126``, which could have been found using an [IP calculator](https://www.calculator.net/ip-subnet-calculator.html).
 </br>
 </br>
 
-#### CIDR Notation
+#### CIDR Notation (/24)
 
-The mask can also be represented with Classless Inter-Domain Routing (CIDR). This form represents the mask as a slash "/", followed by the number of bits that serve as the network address.
+The mask can also be represented with the Classless Inter-Domain Routing (CIDR). This form represents the mask as a slash "/", followed by the number of bits that serve as the network address.
 
-Therefore, the mask int the example above of ``255.255.255.128``, is equivalent to a mask of ``/25`` using the CIDR notation, since 25 bits out of 32 bits represent the network address.
+Therefore, the mask in the example above of ``255.255.255.128``, is equivalent to a mask of ``/25`` using the CIDR notation, since 25 bits out of 32 bits represent the network address.
 
 
 <div align="right">
