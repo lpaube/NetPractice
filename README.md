@@ -397,9 +397,10 @@ IP addressing is a logical means of assigning addresses to devices on a network.
 An IP address has two parts; one part identifies the host such as a computer or other device, and the other part identifies the network it belongs to. TCP/IP uses a [subnet mask](#subnet-mask) to separate them.
 
 #### IPv4 vs. IPv6
-IP addresses come in 2 versions--IPv4 and IPv6.
+IP addresses come in 2 versions--IPv4 and IPv6:
 <br>
-<img src="https://github.com/lpaube/NetPractice/blob/main/img/ip_version.png?raw=true" height=100 alt="ip_versions">
+<br>
+<kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/ip_version.png?raw=true" height=100 alt="ip_versions"></kbd>
 <br>
 
 Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. Only IPv4 addresses are used in NetPractice.
