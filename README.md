@@ -162,6 +162,8 @@ A switch connects multiple devices together in a single network. Unlike a router
 </p>
 </br>
 
+
+
 #### Routing Table
 
 </br>
