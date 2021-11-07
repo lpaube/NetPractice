@@ -152,6 +152,11 @@ Therefore, the mask in the example above of ``255.255.255.128``, is equivalent t
 
 A switch connects multiple devices together in a single network. Unlike a router, the switch does not have any interfaces since it only distibutes packets to its local network, and cannot talk directly to a network outside of its own.
 
+<div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 ---
 
 ### Router
@@ -187,8 +192,6 @@ A routing table is a data table stored in a router or a network host that lists 
 </div>
 </br>
 
----
-
 ## Levels
 <details>
   <summary>Level 1</summary>
@@ -214,6 +217,11 @@ The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**,
 * **211.191.0.0:** Represents the network address.
 * **211.191.255.255:** Represents the broadcast address.
 * **211.191.89.75:** Already taken by host *Client C*.
+
+<div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
 
 </details>
 
@@ -275,6 +283,12 @@ The answers can then be any addresses, as long as they meet the following condit
 * The network address (first 30 bits) must be identical for *Client D* and *Client C*.
 * The host bits (last 2 bits) cannot be all 1, nor all 0.
 * *Client D* and *Client C* do not have identical IP addresses.
+
+<div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 </details>
 
 ---
@@ -302,6 +316,12 @@ The answers can then be any addresses, as long as they meet the following condit
   ```
   </center>
   Excluding of course the network address and the broadcast address.
+
+  <div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 </details>
 
 ---
@@ -333,6 +353,12 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
 
   Note that we did not interact with the router *Interface R2* and *Interface R3*, since none of our communications had to reach these sides of the router.
+
+  <div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 </details>
 
 ---
@@ -357,6 +383,12 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
   The next hop address must be the IP address of the next router's interface on the packets' way. The next interface is *Interface R1*, with the IP address of *54.117.30.126*. Note that the next interface is not *Interface A1*, since this is the sender's own interface.
+
+  <div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 </details>
 
 ---
@@ -410,6 +442,12 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
   A destination of *40.178.145.227/25* is equivalent to the destination address *40.178.145.128/25*, since the mask of */25* will turn all the bits after the 25th to 0 to get the destination's network address.
+
+  <div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 </details>
 
 ---
@@ -446,6 +484,12 @@ The answers can then be any addresses, as long as they meet the following condit
   To calculate the possible ranges of a mask:
   <br>
   https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=93.198.14.2&ctype=ipv4&printit=0&x=97&y=13
+
+  <div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 </details>
 
 ---
@@ -486,6 +530,12 @@ The answers can then be any addresses, as long as they meet the following condit
 
 ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
 **3.** The destination and next hop for the internet is already entered. We only need to enter the next hop for the *Router R2*, which is the IP on the *Interface R21*.
+
+<div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 </details>
 
 ---
@@ -512,6 +562,12 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
   It is normal to have an empty field for the 3rd destination of the *internet*, and in *Router R1's* destination. Not all fields of the routing tables need to be filled.
+
+  <div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 </details>
 
 ---
@@ -557,7 +613,10 @@ The answers can then be any addresses, as long as they meet the following condit
   4. *Router R2* to *Client H3* - ??? (mask ???).
 
   The only IP addresses left for the network "Router R2 to Client H3" are **70.101.30.192 - 70.101.30.251**. We can pick any mask that will let us take 2 IP addresses from that range to put in *Interface R22* and *Interface R31*.
+
+  <div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
 </details>
-
----
-
