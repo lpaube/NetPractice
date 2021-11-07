@@ -164,7 +164,7 @@ A switch connects multiple devices together in a single network. Unlike a router
 
 Just as the switch connects multiple devices on a single network, the router connects multiple networks together. The router has an interface for each network it connects to.
 
-Since the router separates different networks, the range of possible IP addresses on one of its interface must not overlap with the range of its other interfaces. An overlap in the IP addresses range would imply that the interfaces are on the same network.
+Since the router separates different networks, the range of possible IP addresses on one of its interface must not overlap with the range of its other interfaces. An overlap in the IP address range would imply that the interfaces are on the same network.
 </br>
 </br>
 
@@ -429,10 +429,10 @@ The answers can then be any addresses, as long as they meet the following condit
   2. Between *Router R1* and *Router R2*.
   3. Between *Router R2* and *Client C*.
 
-  For *Interface A1*, we cannot chose our IP address freely since the IP of *Interface R11* is already entered. Also, if we give it a mask of */24*, the IP addresses range will overlap with the range of *Interface R12*, which is already entered. They would both be in the range of *93.198.14.0 - 93.198.14.255*.
+  For *Interface A1*, we cannot chose our IP address freely since the IP of *Interface R11* is already entered. Also, if we give it a mask of */24*, the IP address range will overlap with the range of *Interface R12*, which is already entered. They would both be in the range of *93.198.14.0 - 93.198.14.255*.
   <br>
   <br>
-  Since we need addresses for 3 separate networks, it is convenient to split the last bytes of the address in 4 or more addresses ranges. We do this by using the mask of */26* or higher. The mask of */28* for example will give us 16 ranges, from which we use the following 3:
+  Since we need addresses for 3 separate networks, it is convenient to split the last bytes of the address in 4 or more address ranges. We do this by using the mask of */26* or higher. The mask of */28* for example will give us 16 ranges, from which we use the following 3:
   ```
   93.198.14.1 - 93.198.14.14    (Client A to Router R1)
   93.198.14.65 - 93.198.14.78   (Router R1 to Router R2)
@@ -541,7 +541,7 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
 
   1. The IP address is covered by the *internet* destination.
-  2. The IP addresses range of the various networks do not overlap.
+  2. The IP address range of the various networks do not overlap.
   <br>
   
   With the IP addresses already entered (greyed out), let's examine the ranges covered by the various networks:
