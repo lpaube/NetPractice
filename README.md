@@ -10,7 +10,6 @@ Guide to NetPractice
   - [Switch](#switch)
   - [Router](#router)
 - [Levels](#levels)
-</br>
 
 ## Important Concepts
 
