@@ -9,10 +9,7 @@ Guide to NetPractice
   - [Subnet mask](#subnet-mask)
   - [Switch](#switch)
   - [Router](#router)
-  - [Routing table](#routing-table)
-  - Network address overlap
-- [Levels with solutions](#levels)
-</br>
+- [Levels](#levels)
 </br>
 
 ## Important Concepts
@@ -122,9 +119,10 @@ DECIMAL | 0 - 127
 To get the range of possible IP addresses for our network, we add the range of host address to the network address. Our range of possible IP addresses becomes ``104.198.241.0 - 104.198.241.127``.
 
 <ins>HOWEVER</ins>, the extremities of the range are reserved for specific uses and cannot be given to an interface:
-
-* 104.198.241.0   | Reserved to represent the network address.
-* 104.198.241.127 | Reserved as the broadcast address; used to send packets to all hosts of a network.
+```
+104.198.241.0   | Reserved to represent the network address.
+104.198.241.127 | Reserved as the broadcast address; used to send packets to all hosts of a network.
+```
 
 Therefore, our real IP range becomes ``104.198.241.1 - 104.198.241.126``, which could have been found using an [IP calculator](https://www.calculator.net/ip-subnet-calculator.html).
 </br>
@@ -146,11 +144,30 @@ Therefore, the mask in the example above of ``255.255.255.128``, is equivalent t
 
 ### Switch
 
+</br>
+<p align="center">
+  <kbd><img src="" height=250 alt="switch"></kbd>
+</p>
+</br>
+
+A switch connects multiple devices together in a single network. Unlike a router, the switch does not have any interfaces since it only distibutes packets to its local network, and cannot talk directly to a network outside of its own.
 
 ### Router
 
+</br>
+<p align="center">
+  <kbd><img src="" height=250 alt="router"></kbd>
+</p>
+</br>
 
-### Routing Table
+#### Routing Table
+
+</br>
+<p align="center">
+  <kbd><img src="" height=250 alt="routing_table"></kbd>
+</p>
+</br>
+
 
 ---
 
