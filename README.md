@@ -162,7 +162,11 @@ A switch connects multiple devices together in a single network. Unlike a router
 </p>
 </br>
 
+Just as the switch connects multiple devices on a single network, the router connects multiple networks together. The router has an interface for each network it connects to.
 
+Since the router separates different networks, the range of possible IP addresses on one of its interface must not overlap with the range of its other interfaces. An overlap in the IP addresses range would imply that the interfaces are on the same network.
+</br>
+</br>
 
 #### Routing Table
 
@@ -172,6 +176,12 @@ A switch connects multiple devices together in a single network. Unlike a router
 </p>
 </br>
 
+
+
+<div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
 
 ---
 
