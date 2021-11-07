@@ -146,17 +146,19 @@ Therefore, the mask in the example above of ``255.255.255.128``, is equivalent t
 
 </br>
 <p align="center">
-  <kbd><img src="" height=250 alt="switch"></kbd>
+  <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/switch1.png?raw=true" height=150 alt="switch"></kbd>
 </p>
 </br>
 
 A switch connects multiple devices together in a single network. Unlike a router, the switch does not have any interfaces since it only distibutes packets to its local network, and cannot talk directly to a network outside of its own.
 
+---
+
 ### Router
 
 </br>
 <p align="center">
-  <kbd><img src="" height=250 alt="router"></kbd>
+  <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/route1.png?raw=true" height=200 alt="router"></kbd>
 </p>
 </br>
 
@@ -164,7 +166,7 @@ A switch connects multiple devices together in a single network. Unlike a router
 
 </br>
 <p align="center">
-  <kbd><img src="" height=250 alt="routing_table"></kbd>
+  <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/routing_table.png?raw=true" height=150 alt="routing_table"></kbd>
 </p>
 </br>
 
