@@ -199,7 +199,6 @@ A routing table is a data table stored in a router or a network host that lists 
   <br>
   <br>
 
-![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
 **1.** Since *Client A* and *Client B* are on the same network, their IP address must represent the same network in accordance to the subnet mask.
 <br>
 The subnet mask is *255.255.255.0*, which means that the first 3 bytes of the IP address represent the network, and the 4th byte represents the host. Since we are on the same network, only the host can change. 
@@ -209,7 +208,6 @@ The solution will be anything in the range of **104.96.23.0 - 104.96.23.255** ex
 * **104.96.23.255:** The last number in the range of hosts (255 in this case) represents the broadcast address.
 * **104.96.23.12:** This address is already used by the host *Client B*.
 
-![#ca00ea](https://via.placeholder.com/15/ca00ea/000000?text=+)
 **2.** Same reasoning as *1.*, however the subnet mask is *255.255.0.0* in this case. The first 2 bytes of the IP address will represent the network; and the last 2 bytes, the host address.
 <br>
 The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**, excluding:
@@ -233,12 +231,10 @@ The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**,
   <br>
   <br>
 
-![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
 **1.** Since *Client B* is on the same private network as *Client A*, they should have the exact same subnet mask.
 <br>
 The solution can only be **255.255.255.224**.
 
-![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
 **2.** To understand the subnet mask of *255.255.255.224*, let's look at it in binary form, along with the IP *192.168.20.222* of *Client B*:
 
 <center>
@@ -266,7 +262,6 @@ Excluding:
 * **11000000.10101000.00010100.11011111:** Represents the broadcast address (notice all 1 in the last 5 bits).
 * **11000000.10101000.00010100.11011110:** *Client B* already has that address.
 
-![#ca00ea](https://via.placeholder.com/15/ca00ea/000000?text=+)
 **3.** Here we are introduced to the slash "/" notation for the subnet mask on *Interface D1*. A subnet mask of */30* means that the first 30 bits of the IP address represent the network address, and the remaining 2 bits represent the host address:
 <center>
 
@@ -303,7 +298,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** *Client A*, *Client B*, and *Client C* are all on the same network. Therefore, they must all have the same subnet mask. Since *Client C* already has the mask *255.255.255.128*, the mask for *Interface B1* and for *Interface A1* will also be *255.255.255.128* (or in slash notation: */25*).
   <br>
   <br>
@@ -336,7 +330,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** Since none of the masks on *Interface B1*, *Interface A1*, and *Interface R1* are entered, we are free to chose our own subnet mask. A mask of **/24** is ideal as it leaves us with the entire 4th byte for the host address, and does not require binary calculations to find the range of possible host addresses.
   <br>
   <br>
@@ -377,7 +370,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** *Client A* only has 1 route through which it can send its packets. There is no use specifying a numbered destination. The destination *default* will send the packets to the only path available.
   <br>
   <br>
@@ -407,7 +399,6 @@ The answers can then be any addresses, as long as they meet the following condit
   172.16.0.0 - 172.31.255.255   (1,048,576 IP addresses)
   10.0.0.0 - 10.255.255.255     (16,777,216 IP addresses)
   ```
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** The **next hop** of the internet is already entered, and matches the IP address of the *Interface R2*. Therefore we only need to bother with the destination of the internet.
   <br>
   <br>
@@ -462,7 +453,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** We have 3 separate networks:
   <br>
 
@@ -500,7 +490,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** The hosts *Client C* and *Client D* will send packets to the internet, then the internet will respond by sending packets all the way back to the initial sender. To send these packets, the internet uses the destination *49.175.13.0/26* to send the packets to the networks in the range of ``49.175.13.0 - 49.175.13.63``.
   <br>
   <br>
@@ -508,7 +497,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **2.** On *Interface R23* and *Interface R22* we use the mask *255.255.255.240* (or */28*), to conveniently split the range of */26* from the destination address, into 4 separate ranges. This separation of 4 is necessary since we have the following 3 networks that must not overlap:
   <br>
 
@@ -527,7 +515,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
-![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
 **3.** The destination and next hop for the internet is already entered. We only need to enter the next hop for the *Router R2*, which is the IP on the *Interface R21*.
 
 <div align="right">
@@ -553,7 +540,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** **Goal 3** states that we must connect *meson* with the *internet*. The *internet* will then have to respond to *meson*, so we enter *meson's* network address in the *internet's* destination.
   <br>
   <br>
@@ -587,7 +573,6 @@ The answers can then be any addresses, as long as they meet the following condit
   4. *Router R2* to *Client H3*
   <br>
 
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **1.** The internet must be able to send its packets to all the hosts, so its destination must cover the range of networks of all the hosts.
   <br>
   <br>
@@ -595,7 +580,6 @@ The answers can then be any addresses, as long as they meet the following condit
   <br>
   <br>
 
-  ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+)
   **2.** When chosing the IP addresses, we must make sure of 2 things:
   <br>
 
