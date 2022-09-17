@@ -1,3 +1,5 @@
+![netpractice logo](img/NetPractice.png)
+
 <div id="top"></div>
 
 Guide to NetPractice
