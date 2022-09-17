@@ -5,7 +5,8 @@ Guide to NetPractice
 
 ## Table of Contents
 - [Important concepts](#important-concepts)
-  - [IP address](#ip-address)
+  - [TCP](#tcp-transport-layer)
+  - [IP address](#ip-address-network-layer)
   - [Subnet mask](#subnet-mask)
   - [Switch](#switch)
   - [Router](#router)
@@ -13,7 +14,26 @@ Guide to NetPractice
 
 ## Important Concepts
 
-### IP Address
+### TCP: Transport Layer
+
+</br>
+<p align="center">
+  <img src="./img/tcp-ip-stack.png" height=300 width=200 alt="mask">
+</p>
+</br>
+
+TCP stands for **Transmission Control Protocol**. It is a communications standard that enables application programs and computing devices to exchange messages over a network. It is designed to send packets across the internet.
+
+TCP guarantees the integrity of the data being communicated over a network. Before it transmits data, TCP establishes a connection between a source and its destination, which it ensures remains live until communication begins. It then breaks large amounts of data into smaller packets, while ensuring end-to-end delivery without loss of any data.
+
+<div align="right">
+  <b><a href="#top">↥ back to top</a></b>
+</div>
+</br>
+
+---
+
+### IP Address: Network Layer
 
 </br>
 <p align="center">
