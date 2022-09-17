@@ -25,9 +25,9 @@ Guide to NetPractice
 </p>
 </br>
 
-TCP stands for **Transmission Control Protocol**. It is a communications standard that enables application programs and computing devices to exchange messages over a network. It is designed to send packets across the internet.
+TCP stands for **Transmission Control Protocol**. It is a communications standard that enables application programs and devices to exchange messages over a network. It is used to send packets across the internet.
 
-TCP guarantees the integrity of the data being communicated over a network. Before it transmits data, TCP establishes a connection between a source and its destination, which it ensures remains live until communication begins. It then breaks large amounts of data into smaller packets, while ensuring end-to-end delivery without loss of any data.
+TCP guarantees the integrity of the data being communicated over a network. Before it transmits data, TCP establishes a connection between a source and its destination, which remains active until communication begins. It then breaks large amounts of data into smaller packets, while ensuring end-to-end delivery without loss of any data.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
