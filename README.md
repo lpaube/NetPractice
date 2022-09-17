@@ -1,9 +1,10 @@
-![netpractice logo](img/NetPractice.png)
 
-<div id="top"></div>
 
 Guide to NetPractice
 ====================
+![netpractice logo](img/NetPractice.png)
+
+<div id="top"></div>
 
 ## Table of Contents
 - [Important concepts](#important-concepts)
