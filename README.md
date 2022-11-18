@@ -461,6 +461,8 @@ The answers can then be any address, as long as they meet the following conditio
 </div>
 </br>
 
+</details>
+
 ---
 
 <details>
