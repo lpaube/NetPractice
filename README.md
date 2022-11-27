@@ -408,7 +408,7 @@ Note that we did not interact with the router _Interface R2_ and _Interface R3_,
 
 This level introduces **routes**. A route contains 2 fields, the first one is the **destination** of outbound packets, the second one is the **next hop** of the packets.
 <br>
-The **destination** _default_ is equivalent to _0.0.0.0/0_, which will send the packets i gndiscriminately to the first network address it encounters. A destination address of _122.3.5.3/24_ would send the packets to the network _122.3.5.0_.
+The **destination** _default_ is equivalent to _0.0.0.0/0_, which will send the packets indiscriminately to the first network address it encounters. A destination address of _122.3.5.3/24_ would send the packets to the network _122.3.5.0_.
 <br>
 The **next hop** is the IP address of the next router (or internet) interface to which the interface of the current machine must send its packets.
 <br>
