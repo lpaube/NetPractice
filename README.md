@@ -68,7 +68,7 @@ Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. How
 
 A public IP address is an IP address that can be accessed directly over the internet and is assigned to your network router by your internet service provider (ISP). A public (or external) IP address helps you connect to the internet from inside your network, to outside your network.
 
-A private IP address is the address your network router assigns to your device. Each device within the same network is assigned a unique private IP address (sometimes called a private network address) — this is how devices on the same internal network talk to each other.
+A private IP address is an address your network router assigns to your device. Each device within the same network is assigned a unique private IP address (sometimes called a private network address) — this is how devices on the same internal network talk to each other.
 
 When a network is connected to the internet, it cannot use an IP address from the reserved private IP addresses. The following ranges are reserved for private IP addresses:
 ```
@@ -132,13 +132,13 @@ IP address | 01101000.11000110.11110001.01111101
 Mask       | 11111111.11111111.11111111.10000000
 ```
 
-The possible range of our host addresses are expressed through the last 7 bits of the mask which are all 0. Therefore, the range of host addresses is:
+The possible range of our host addresses is expressed through the last 7 bits of the mask which are all 0. Therefore, the range of host addresses is:
 ```
 BINARY  | 0000000 - 1111111
 DECIMAL | 0 - 127
 ```
 
-To get the range of possible IP addresses for our network, we add the range of host address to the network address. Our range of possible IP addresses becomes ``104.198.241.0 - 104.198.241.127``.
+To get the range of possible IP addresses for our network, we add the range of host addresses to the network address. Our range of possible IP addresses becomes ``104.198.241.0 - 104.198.241.127``.
 
 <ins>HOWEVER</ins>, the extremities of the range are reserved for specific uses and cannot be given to an interface:
 ```
@@ -172,7 +172,7 @@ Therefore, the mask in the example above of ``255.255.255.128``, is equivalent t
 </p>
 </br>
 
-A switch connects multiple devices together in a single network. Unlike a router, the switch does not have any interfaces since it only distibutes packets to its local network, and cannot talk directly to a network outside of its own.
+A switch connects multiple devices together in a single network. Unlike a router, the switch does not have any interfaces since it only distributes packets to its local network, and cannot talk directly to a network outside of its own.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -191,7 +191,7 @@ A switch connects multiple devices together in a single network. Unlike a router
 
 Just as the switch connects multiple devices on a single network, the router connects multiple networks together. The router has an interface for each network it connects to.
 
-Since the router separates different networks, the range of possible IP addresses on one of its interface must not overlap with the range of its other interfaces. An overlap in the IP address range would imply that the interfaces are on the same network.
+Since the router separates different networks, the range of possible IP addresses on one of its interfaces must not overlap with the range of its other interfaces. An overlap in the IP address range would imply that the interfaces are on the same network.
 </br>
 </br>
 
@@ -222,7 +222,8 @@ A routing table is a data table stored in a router or a network host that lists 
   <br>
   <br>
 
-  **1.** Since *Client A* and *Client B* are on the same network, their IP address must represent the same network in accordance with the subnet mask.
+
+**1.** Since *Client A* and *Client B* are on the same network, their IP address must represent the same network in accordance with the subnet mask.
 <br>
 The subnet mask is *255.255.255.0*, which means that the first 3 bytes of the IP address represent the network, and the 4th byte represents the host. Since we are on the same network, only the host can change. 
 <br>
@@ -231,7 +232,7 @@ The solution will be anything in the range of **104.96.23.0 - 104.96.23.255** ex
 * **104.96.23.255:** The last number in the range of hosts (255 in this case) represents the broadcast address.
 * **104.96.23.12:** This address is already used by the host *Client B*.
 
-**2.** Same reasoning as *1.*, however the subnet mask is *255.255.0.0* in this case. The first 2 bytes of the IP address will represent the network; and the last 2 bytes, the host address.
+**2.** The same reasoning as *1.*, however the subnet mask is *255.255.0.0* in this case. The first 2 bytes of the IP address will represent the network; and the last 2 bytes, the host address.
 <br>
 The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**, excluding:
 * **211.191.0.0:** Represents the network address.
@@ -387,7 +388,9 @@ The answers can then be any address, as long as they meet the following conditio
 
   This level introduces **routes**. A route contains 2 fields, the first one is the **destination** of outbound packets, the second one is the **next hop** of the packets.
   <br>
+
   The **destination** *default* is equivalent to *0.0.0.0/0*, which will send the packets indiscriminately to the first network address it encounters. A destination address of *122.3.5.3/24* would send the packets to the network *122.3.5.0*.
+
   <br>
   The **next hop** is the IP address of the next  router (or internet) interface to which the interface of the current machine must send its packets. 
   <br>
@@ -486,7 +489,9 @@ The answers can then be any address, as long as they meet the following conditio
   For *Interface A1*, we cannot choose our IP address freely since the IP of *Interface R11* is already entered. Also, if we give it a mask of */24*, the IP address range will overlap with the range of *Interface R12*, which is already entered. They would both be in the range of *93.198.14.0 - 93.198.14.255*.
   <br>
   <br>
-  Since we need addresses for 3 separate networks, it is convenient to split the last bytes of the address in 4 or more address ranges. We do this by using a mask of */26* or higher. The mask of */28* for example will give us 16 ranges, from which we use the following 3:
+
+  Since we need addresses for 3 separate networks, it is convenient to split the last bytes of the address into 4 or more address ranges. We do this by using a mask of */26* or higher. The mask of */28* for example will give us 16 ranges, from which we use the following 3:
+
   ```
   93.198.14.1 - 93.198.14.14    (Client A to Router R1)
   93.198.14.65 - 93.198.14.78   (Router R1 to Router R2)
@@ -527,7 +532,7 @@ The answers can then be any address, as long as they meet the following conditio
   2. *Router R2* to *Client C*.
   3. *Router R2* to *Client D*.
 
-  Each of these networks can then be attributed one of the following IP range with a mask of */28*:
+  Each of these networks can then be attributed one of the following IP ranges with a mask of */28*:
   ```
   49.175.13.0 - 49.175.13.15
   49.175.13.16 - 49.175.13.31
@@ -538,7 +543,7 @@ The answers can then be any address, as long as they meet the following conditio
   <br>
   <br>
 
-**3.** The destination and next hop for the internet is already entered. We only need to enter the next hop for the *Router R2*, which is the IP on the *Interface R21*.
+**3.** The destination and next hop for the internet are already entered. We only need to enter the next hop for the *Router R2*, which is the IP on the *Interface R21*.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -556,7 +561,7 @@ The answers can then be any address, as long as they meet the following conditio
   <br>
   <br>
 
-  This level is quite straight-forward since the internet does not initially send its packets to a specific network. Therefore, the separate networks do not need to share a common address range. I would suggest to simply follow the 6 goals of the level one by one until the level is completed.
+  This level is quite straightforward since the internet does not initially send its packets to a specific network. Therefore, the separate networks do not need to share a common address range. I would suggest simply following the 6 goals of the level one by one until the level is completed.
   <br>
   <br>
   Remember not to use the network addresses from the reserved private IP ranges.
@@ -587,7 +592,7 @@ The answers can then be any address, as long as they meet the following conditio
   <br>
   <br>
 
-  In this level, there are 4 different networks:
+  At this level, there are 4 different networks:
   <br>
 
   1. *Router R1* to *Switch S1*
@@ -599,15 +604,17 @@ The answers can then be any address, as long as they meet the following conditio
   **1.** The internet must be able to send its packets to all the hosts, so its destination must cover the range of networks of all the hosts.
   <br>
   <br>
+
   *Interface R11* and *Interface R13* already have an IP address entered. This IP address only differs in its last byte. *Interface R11* has for last byte **1**, and *Interface R13* has for last byte **254**. To cover this wide range to IP addresses, we take a mask of **/24** for the *internet's* destination. This destination will cover a range of ``70.101.30.0 - 70.101.30.255``.
+
   <br>
   <br>
 
-  **2.** When chosing the IP addresses, we must make sure of 2 things:
+  **2.** When choosing the IP addresses, we must make sure of 2 things:
   <br>
 
   1. The IP address is covered by the *internet* destination.
-  2. The IP address range of the various networks do not overlap.
+  2. The IP address range of the various networks does not overlap.
   <br>
   
   With the IP addresses already entered (greyed out), let's examine the ranges covered by the various networks:
