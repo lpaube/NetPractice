@@ -222,6 +222,7 @@ A routing table is a data table stored in a router or a network host that lists 
   <br>
   <br>
 
+
 **1.** Since *Client A* and *Client B* are on the same network, their IP address must represent the same network in accordance with the subnet mask.
 <br>
 The subnet mask is *255.255.255.0*, which means that the first 3 bytes of the IP address represent the network, and the 4th byte represents the host. Since we are on the same network, only the host can change. 
@@ -285,7 +286,7 @@ Excluding:
 * **11000000.10101000.00010100.11011111:** Represents the broadcast address (notice all 1 in the last 5 bits).
 * **11000000.10101000.00010100.11011110:** *Client B* already has that address.
 
-**3.** Here we are introduced to the slash "/" notation for the subnet mask on *Interface D1*. A subnet mask of */30* means that the first 30 bits of the IP address represent the network address, and the remaining 2 bits represent the host address:
+**3.** Here we are introduced the slash "/" notation for the subnet mask on *Interface D1*. A subnet mask of */30* means that the first 30 bits of the IP address represent the network address, and the remaining 2 bits represent the host address:
 <center>
 
 ```
@@ -387,7 +388,9 @@ The answers can then be any address, as long as they meet the following conditio
 
   This level introduces **routes**. A route contains 2 fields, the first one is the **destination** of outbound packets, the second one is the **next hop** of the packets.
   <br>
-  The **destination** *default* is equivalent to *0.0.0.0/0*, which will send the packets i gndiscriminately to the first network address it encounters. A destination address of *122.3.5.3/24* would send the packets to the network *122.3.5.0*.
+
+  The **destination** *default* is equivalent to *0.0.0.0/0*, which will send the packets indiscriminately to the first network address it encounters. A destination address of *122.3.5.3/24* would send the packets to the network *122.3.5.0*.
+
   <br>
   The **next hop** is the IP address of the next  router (or internet) interface to which the interface of the current machine must send its packets. 
   <br>
@@ -427,7 +430,7 @@ The answers can then be any address, as long as they meet the following conditio
   <br>
   The internet must send its packets to *Client A*. To do so, the internet's destination must match the network address of *Client A*. Let's find the network address of *Client A*:
   <br>
-  *Client A*'s mask is *255.255.255.128*, which is equivalent to */25*. This means that the first 25 bits of its IP address is its network address. We know then that the first 3 bytes (24 bits) of its IP address makes part of its network address:
+  *Client A*'s mask is *255.255.255.128*, which is equivalent to */25*. This means that the first 25 bits of its IP address are its network address. We know then that the first 3 bytes (24 bits) of its IP address make part of its network address:
   <center>
 
   ```
@@ -486,7 +489,9 @@ The answers can then be any address, as long as they meet the following conditio
   For *Interface A1*, we cannot choose our IP address freely since the IP of *Interface R11* is already entered. Also, if we give it a mask of */24*, the IP address range will overlap with the range of *Interface R12*, which is already entered. They would both be in the range of *93.198.14.0 - 93.198.14.255*.
   <br>
   <br>
+
   Since we need addresses for 3 separate networks, it is convenient to split the last bytes of the address into 4 or more address ranges. We do this by using a mask of */26* or higher. The mask of */28* for example will give us 16 ranges, from which we use the following 3:
+
   ```
   93.198.14.1 - 93.198.14.14    (Client A to Router R1)
   93.198.14.65 - 93.198.14.78   (Router R1 to Router R2)
@@ -599,7 +604,9 @@ The answers can then be any address, as long as they meet the following conditio
   **1.** The internet must be able to send its packets to all the hosts, so its destination must cover the range of networks of all the hosts.
   <br>
   <br>
-  *Interface R11* and *Interface R13* already have an IP address entered. This IP address only differs in its last byte. *Interface R11* has for last byte **1**, and *Interface R13* has for last byte **254**. To cover this wide range of IP addresses, we take a mask of **/24** for the *internet's* destination. This destination will cover a range of ``70.101.30.0 - 70.101.30.255``.
+
+  *Interface R11* and *Interface R13* already have an IP address entered. This IP address only differs in its last byte. *Interface R11* has for last byte **1**, and *Interface R13* has for last byte **254**. To cover this wide range to IP addresses, we take a mask of **/24** for the *internet's* destination. This destination will cover a range of ``70.101.30.0 - 70.101.30.255``.
+
   <br>
   <br>
 
