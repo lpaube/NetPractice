@@ -8,7 +8,7 @@
 
 ## Contributing to this Project
 
-If you'd like to contribute to this guide, the following points would be welcome additions.
+If you'd like to contribute to this guide, the following points would be great additions:
 
 - [ ] The French translation of this README.md into a file named README.fr.md.
 - [ ] The Korean translation of this README.md into a file named README.ko.md.
