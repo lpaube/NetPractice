@@ -14,8 +14,6 @@ If you'd like to contribute to this guide, the following points would be welcome
 - [x] The Korean translation of this README.md into a file named README.ko.md.
 - [x] The Russian translation of this README.md into a file named README.ru.md.
 
----
-
 ## Table of Contents
 
 - [Important concepts](#important-concepts)
