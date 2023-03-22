@@ -508,3 +508,174 @@ destination에 _40.178.145.227/25_ 을 기입하는 것은 _40.178.145.128/25_ �
 
 </details>
 
+---
+
+<details>
+  <summary>Level 7</summary>
+  <br>
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level7_paint.png?raw=true" alt="level7">
+  <br>
+  <br>
+
+이 예제에서는 **주소 겹칩**의 개념이 등장한다. 네트워크의 IP 범위는 다른 네트워크의 IP 범위와 중복되어서는 안된다. 네트워크는 라우터에 의해 구분된다.
+<br>
+<br>
+
+**1.** 3개의 네트워크가 구분되도록 해야한다.
+<br>
+
+1. _Client A_ 와 _Router R1_
+2. _Router R1_ 과 _Router R2_
+3. _Router R2_ 와 _Client C_
+
+_Interface A1_ 에서는 _Interface R11_ 의 IP가 이미 정해졌기 때문에 IP 주소를 자유롭게 고를 수 없다. 또한 마스크를 _/24_ 로 지정할 경우 IP 주소 범위가 이미 지정된 _Interface R12_ 의 범위와 겹치게 된다. 이 둘은 모두 _93.198.14.0 - 93.198.14.255_ 의 주소 범위를 가지게 된다.
+<br>
+<br>
+
+현재 3개의 구분되는 네트워크의 주소가 필요하기 때문에 주소에서 마지막 바이트를 4개 이상의 범위로 구분할 수 있다면 편리할 것이다. 마스크의 값이 _/26_ 이상이 된다면 가능하다. 예를 들어 마스크가 _/28_ 이라면 16개의 범위로 구분할 수 있고 이 중 3개 범위를 다음과 같이 사용한다.
+
+```
+93.198.14.1 - 93.198.14.14    (Client A 에서 Router R1)
+93.198.14.65 - 93.198.14.78   (Router R1 에서 Router R2)
+93.198.14.241 - 93.198.14.254 (Router R2 에서 Client C)
+```
+
+마스크 값에 따른 가능한 주소 범위를 계산하려면:
+<br>
+https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=93.198.14.2&ctype=ipv4&printit=0&x=97&y=13
+
+  <div align="right">
+  <b><a href="#top">↥ 목차로 돌아가기</a></b>
+</div>
+</br>
+
+</details>
+
+---
+
+<details>
+  <summary>Level 8</summary>
+  <br>
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level8_paint.png?raw=true" alt="level8">
+  <br>
+  <br>
+
+**1.** _Client C_ 와 _Client D_ 두 호스트는 인터넷으로 패킷을 보낼 것이고 인터넷은 원래의 송신자에게 다시 패킷을 응답할 것이다. 이 패킷들을 보내기 위해 인터넷은 _49.175.13.0/26_ 을 destination으로 활용하며 이 네트워크의 범위는 `49.175.13.0 - 49.175.13.63`이다.
+<br>
+<br>
+모든 패킷을 받는 네트워크는 그 범위가 중복되지 않으면서 위 범위 안에 있어야 한다.
+<br>
+<br>
+
+**2.** _Interface R23_ 과 _Interface R22_ 에서는 _255.255.255.240_ (또는 _/28_)을 마스크로 지정하여 destination에 부여된 _/26_ 네트워크를 4개 구분된 네트워크로 나눌 수 있다. 이 예제에서 다음 3개의 네트워크를 구분해야 하기 때문에 최소 4개의 구분된 네트워크가 필요하다.
+<br>
+
+1. _Router R1_ 에서 _Router R2_
+2. _Router R2_ 에서 _Client C_
+3. _Router R2_ 에서 _Client D_
+
+각 네트워크의 마스크는 _/28_ 이므로 다음 IP 범위로 나누어진다.
+
+```
+49.175.13.0 - 49.175.13.15
+49.175.13.16 - 49.175.13.31
+49.175.13.32 - 49.175.13.47
+49.175.13.48 - 49.175.13.63
+```
+
+네트워크 주소 (첫 주소)와 브로드캐스트 주소 (마지막 주소)는 각 범위에서 제외되어야 함을 상기하라.
+<br>
+<br>
+
+**3.** 인터넷을 향한 destination과 next hop은 이미 입력되어 있다. _Router R2_ 를 향한 next hop, 즉 _Interface R21_ 의 IP만 입력하면 된다.
+
+<div align="right">
+  <b><a href="#top">↥ 목차로 돌아가기</a></b>
+</div>
+</br>
+
+</details>
+
+---
+
+<details>
+  <summary>Level 9</summary>
+  <br>
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level9_paint.png?raw=true" alt="level9">
+  <br>
+  <br>
+
+이 예제는 인터넷이 특정 네트워크로 곧바로 패킷을 전송하지 않기 때문에 간단한 편이다. 따라서 각 네트워크가 공통된 주소 범위를 공유할 필요가 없다. 예제가 완료될 때까지 단순히 6개의 골을 달성하는 것을 추천한다.
+<br>
+<br>
+예약된 사설 IP의 주소를 사용하지 않도록 주의하라.
+<br>
+<br>
+
+**1.** **Goal 3**을 달성하려면 _meson_ 이 인터넷에 연결되어야 한다. 인터넷은 _meson_에게 응답해야 하므로 인터넷의 destination에 _meson_의 네트워크 주소를 입력한다.
+<br>
+<br>
+
+**Goal 6**을 달성하려면 _cation_ 이 인터넷에 연결되어야 한다. 따라서 _cation_ 의 네트워크 주소를 인터넷의 destination에 입력한다.
+<br>
+<br>
+
+인터넷의 세번째 destination과 _Router R1_ 의 destination이 비어 있어도 무방하다. 라우팅 테이블의 모든 칸이 채워질 필요는 없다.
+
+  <div align="right">
+  <b><a href="#top">↥ 목차로 돌아가기</a></b>
+</div>
+</br>
+
+</details>
+
+---
+
+<details>
+  <summary>Level 10</summary>
+  <br>
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level10_paint.png?raw=true" alt="level10">
+  <br>
+  <br>
+
+이 예제에는 4개의 네트워크가 있다.
+<br>
+
+1. _Router R1_ 에서 _Switch S1_
+2. _Router R1_ 에서 _Router R2_
+3. _Router R2_ 에서 _Client H4_
+4. _Router R2_ 에서 _Client H3_
+   <br>
+
+**1.** 인터넷이 모든 호스트에게 패킷을 보낼 수 있어야 하므로 destination은 모든 호스트의 네트워크의 범위를 포함해야 한다.
+<br>
+<br>
+
+_Interface R11_ 과 _Interface R13_ 은 이미 IP 주소가 입력되어 있다. 두 주소에서 다른 부분은 마지막 바이트뿐이다. _Interface R11_ 의 마지막 바이트는 **1**이고 _Interface R13_ 의 마지막 바이트는 **254**다. 이 두 주소를 모두 포함하는 범위를 지정하기 위해 인터넷의 destination의 마스크를 **/24**로 지정해야 한다. destination은 `70.101.30.0 - 70.101.30.255`의 범위를 가지게 된다.
+
+  <br>
+  <br>
+
+**2.** IP 주소를 고를 때 2가지 사항을 고려해야 한다.
+<br>
+
+1. IP 주소가 인터넷의 destination의 범위 안에 있다.
+2. 각 네트워크의 IP 주소 범위는 겹치지 않는다.
+   <br>
+
+이미 입력된 IP 주소를 통해서 각 네트워크가 가질 수 있는 주소의 범위를 구한다.
+<br>
+
+1. _Router R1_ 에서 _Switch S1_ - **70.101.30.0 - 70.101.30.127** (마스크 /25).
+2. _Router R2_ 에서 _Client H4_ - **70.101.30.128 - 70.101.30.191** (마스크 /26).
+3. _Router R1_ 에서 _Router R2_ - **70.101.30.252 - 70.101.30.255** (마스크 /30).
+4. _Router R2_ 에서 _Client H3_ - ??? (mask ???).
+
+"Router R2에서 Client H3" 사이의 네트워크에 할당할 수 있는 남은 범위는 **70.101.30.192 - 70.101.30.251**다. 해당 범위 내에서 2개의 IP를 선택할 수 있도록 하는 임의의 마스크를 고른 후 _Interface R22_ 와 _Interface R31_ 에 기입한다.
+
+  <div align="right">
+  <b><a href="#top">↥ 목차로 돌아가기</a></b>
+</div>
+</br>
+
+</details>
