@@ -10,8 +10,6 @@
 
 [Korean](README.ko.md)
 
----
-
 ## Contributing to this Project
 
 If you'd like to contribute to this guide, the following points would be great additions:
@@ -19,6 +17,8 @@ If you'd like to contribute to this guide, the following points would be great a
 - [ ] The French translation of this README.md into a file named README.fr.md.
 - [x] ~~The Korean translation of this README.md into a file named README.ko.md.~~
 - [ ] The Russian translation of this README.md into a file named README.ru.md.
+
+---
 
 ## Table of Contents
 
