@@ -12,15 +12,6 @@
 <br>
 [English](README.md)
 
-## Contribuer à ce projet
-
-Si vous aimeriez contribuer à ce guide, les points suivants seraient des ajouts appréciables:
-
-- [x] ~~La traduction française de ce README.md dans un fichier appelé README.fr.md~~.
-- [x] ~~La traduction coréenne de ce README.md dans un fichier appelé README.ko.md~~
-- [ ] La traduction russe de ce README.md dans un fichier appelé README.ru.md.
-- [ ] La traduction japonaise de ce README.md dans un fichier appelé README.jp.md.
-
 ---
 
 ## Sommaire
@@ -316,10 +307,9 @@ A l'exception de:
 
 - **11000000.10101000.00010100.11000000** : Représente l'adresse du réseau (remarquez les 0 dans les 5 derniers bits).
 - **11000000.10101000.00010100.11011111** : Représente l'adresse de diffusion (remarquez tous les 1 dans les 5 derniers bits).
-- **11000000.10101000.00010100.11011110** : Le client B_ utilise déjà cette adresse.
+- **11000000.10101000.00010100.11011110** : Le client B\_ utilise déjà cette adresse.
 
 **3.** Nous introduisons ici la notation de la barre oblique "/" pour le masque de sous-réseau de l'_Interface D1_. Un masque de sous-réseau de _/30_ signifie que les 30 premiers bits de l'adresse IP représentent l'adresse réseau, et les 2 bits restants représentent l'adresse hôte :
-
 
 <center>
 

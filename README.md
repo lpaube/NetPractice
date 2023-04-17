@@ -12,15 +12,6 @@
 <br>
 [French](README.fr.md)
 
-## Contributing to this Project
-
-If you'd like to contribute to this guide, the following points would be great additions:
-
-- [x] ~~The French translation of this README.md into a file named README.fr.md.~~
-- [x] ~~The Korean translation of this README.md into a file named README.ko.md.~~
-- [ ] The Russian translation of this README.md into a file named README.ru.md.
-- [ ] The Japanese translation of this README.md into a file named README.ja.md.
-
 ---
 
 ## Table of Contents
