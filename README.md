@@ -10,8 +10,6 @@
 <br>
 [French](README.fr.md)
 
----
-
 ## Table of Contents
 
 - [Important concepts](#important-concepts)
@@ -21,6 +19,8 @@
   - [Switch](#switch)
   - [Router](#router)
 - [Levels](#levels)
+
+---
 
 ## Important Concepts
 

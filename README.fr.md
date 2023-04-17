@@ -10,8 +10,6 @@
 <br>
 [English](README.md)
 
----
-
 ## Sommaire
 
 - [Concepts importants](#concepts-importants)
@@ -21,6 +19,8 @@
   - [Switch](#switch)
   - [Routeur](#routeur)
 - [Niveaux](#niveaux)
+
+---
 
 ## Concepts importants
 
