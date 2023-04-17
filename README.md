@@ -4,8 +4,6 @@
 
 <div id="top"></div>
 
----
-
 ## Other Languages
 
 [Korean](README.ko.md)
