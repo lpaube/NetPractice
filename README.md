@@ -1,5 +1,5 @@
-> Want to see 42 Quebec in 3D?  
-> **Click here!** :arrow_right: https://mini42qc.vercel.app/ :arrow_left:
+> **Want to see 42 Quebec in 3D?**  
+> **Click here! :arrow_right: https://mini42qc.vercel.app/ :arrow_left:**
 
 # Guide to NetPractice
 
