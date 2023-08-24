@@ -1,3 +1,6 @@
+> **Tu veux voir 42 Quebec en 3D?**  
+> **:arrow_right: https://mini42qc.vercel.app/ :arrow_left:**
+
 # Guide to NetPractice
 
 ![netpractice logo](img/NetPractice.png)
