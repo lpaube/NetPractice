@@ -1,5 +1,5 @@
 > **Want to see 42 Quebec in 3D?**  
-> **:arrow_right: [https://mini42qc.vercel.app/]{:target="\_blank"} :arrow_left:**
+> **:arrow_right: https://mini42qc.vercel.app/ :arrow_left:**
 
 # Guide to NetPractice
 
