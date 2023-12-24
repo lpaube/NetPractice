@@ -246,23 +246,23 @@ Yönlendirme tablosu, bir yönlendiricide veya host bilgisayarında saklanan ve 
   <br>
   <br>
 
-**1.** Since _Client A_ and _Client B_ are on the same network, their IP address must represent the same network in accordance with the subnet mask.
+**1.** Client _A_ ve Client _B_ aynı ağda oldukları için, IP adresleri subnet maskesi ile birlikte aynı ağır temsil etmelidir.
 <br>
-The subnet mask is _255.255.255.0_, which means that the first 3 bytes of the IP address represent the network, and the 4th byte represents the host. Since we are on the same network, only the host can change.
+_255.255.255.0_, IP adresinin 3 byte'ının ağ adresini, 1 byte'ının ise host adresini gösterdiğini söyleyen bir subnet maskesidir. Aynı ağda olunduğu sürece sadece host kısmı değişebilir.
 <br>
-The solution will be anything in the range of **104.96.23.0 - 104.96.23.255** excluding the following 3:
+Çözüm, **104.96.23.0 - 104.96.23.255** aralığında olacaktır:
 
-- **104.96.23.0:** The first number in the range of hosts (0 in this case) represents the network and cannot be used by a host.
-- **104.96.23.255:** The last number in the range of hosts (255 in this case) represents the broadcast address.
-- **104.96.23.12:** This address is already used by the host _Client B_.
+- **104.96.23.0:** Aralığın ilk adresi, ağ adresini temsil eder ve hostlara tanımlanamaz.
+- **104.96.23.255:** Aralığın son adresi, broadcast adresi olarak tanımlıdır ve hostlara tanımlanamaz.
+- **104.96.23.12:** Bu adres zaten _Client B_ hostuna tanımlanmıştır.
 
-**2.** The same reasoning as _1._, however the subnet mask is _255.255.0.0_ in this case. The first 2 bytes of the IP address will represent the network; and the last 2 bytes, the host address.
+**2.** _1._ ile aynı mantık, ancak bu durumda alt ağ maskesi _255.255.0.0_'dır. IP adresinin ilk 2 baytı ağ adresini temsil edecektir; ve son 2 bayt,host adresidir.
 <br>
-The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**, excluding:
+Çözüm, **211.191.0.0 - 211.191.255.255** aralığındaki herhangi bir IP adresi olacaktır; ancak aşağıdakiler hariç:
 
-- **211.191.0.0:** Represents the network address.
-- **211.191.255.255:** Represents the broadcast address.
-- **211.191.89.75:** Already taken by host _Client C_.
+- **211.191.0.0:** Ağ adresini temsil eder.
+- **211.191.255.255:** Broadcast adresini temsil eder.
+- **211.191.89.75:** Zaten _Client C_ hostu tarafından alınmış.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -280,11 +280,11 @@ The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**,
   <br>
   <br>
 
-**1.** Since _Client B_ is on the same private network as _Client A_, they should have the exact same subnet mask.
+**1.** _Client B_ ve _Client A_ aynı ağ içerisinde olduklarından, aynı subnet mask tanımlanmalıdır.
 <br>
-The solution can only be **255.255.255.224**.
+Çözüm ise sadece  **255.255.255.224** olabilir.
 
-**2.** To understand the subnet mask of _255.255.255.224_, let's look at it in binary form, along with the IP _192.168.20.222_ of _Client B_:
+**2.** _255.255.255.224_ alt ağını anlamak için ikili formda inceleyelim, IP olarak ise _Client B_'nin _192.168.20.222_ IP adresini kullanalım:
 
 <center>
 
@@ -294,12 +294,11 @@ IP:   11000000.10101000.00010100.11011101
 ```
 
 </center>
-As we can see, the first 27 bits represent the IP address, while only the last 5 bits represent the host address.
+Gördüğümüz üzere ilk 27 bit ağ adresini tanımlarken, son 5 bit host adresini tanımlamaktadır.<br>
+Tüm bu 27 bit ağ adresini tanımladığı için bu kısım aynı ağın içinde aynı kalmak zorundadır. Diğer bir deyişle sadece son 5 biti değiştirebiliriz.
 <br>
-All these 27 bits representing the network must stay the same in the IP addresses of hosts on the same network. To get the answer, we can only change the last 5 bits.
 <br>
-<br>
-The answer is in the range of:
+Kullanılabilecek aralık ise:
 
 ```
 BIN:  11000000.10101000.00010100.11000000 - 11000000.10101000.00010100.11011111
@@ -307,14 +306,14 @@ or
 DEC:  192.168.20.192 - 192.168.20.223
 ```
 
-Excluding:
+Aşağıdakiler hariç:
 <br>
 
-- **11000000.10101000.00010100.11000000:** Represents the network address (notice all 0 in the last 5 bits).
-- **11000000.10101000.00010100.11011111:** Represents the broadcast address (notice all 1 in the last 5 bits).
-- **11000000.10101000.00010100.11011110:** _Client B_ already has that address.
+- **11000000.10101000.00010100.11000000:** Ağ adresi için ayrılmıştır (son 5 bitin sıfır olduğuna dikkat edin).
+- **11000000.10101000.00010100.11011111:** Broadcast ağını temsil etmektedir (son 5 bitin sıfır olduğuna dikkat edin).
+- **11000000.10101000.00010100.11011110:** _Client B_ tarafından kullanılan IP adresi.
 
-**3.** Here we are introduced the slash "/" notation for the subnet mask on _Interface D1_. A subnet mask of _/30_ means that the first 30 bits of the IP address represent the network address, and the remaining 2 bits represent the host address:
+**3.** _Interface D1_'in alt ağ maskesi üzerinden slash kullandıgımız notasyonu anlamaya çalışalım. _/30_ olarak gösterilen bir alt ağ maskesi IP adresindeki 30 bitin ağ adresini temsil ettiği anlamına gelir ve geriya kalan 2 bit host adresi için değiştirilebilir.
 
 <center>
 
@@ -324,14 +323,14 @@ Mask /30: 11111111.11111111.11111111.11111100
 
 </center>
 
-We can see that this binary number corresponds to the decimal _255.255.255.252_, therefore it is identical to the mask found on _Interface C1_.
+Yukarıdaki ikili formun onluk (decimal) gösteriminin  _255.255.255.252_ olduğunu görebiliriz ve bu  _Interface C1_'de gördüğümüz alt ağ maskesidir.
 <br>
 <br>
-The answers can then be any address, as long as they meet the following conditions:
+Cevaplar aşağıdaki koşullara uyduğu sürece herhangi bir adres olabilir:
 
-- The network address (first 30 bits) must be identical for _Client D_ and _Client C_.
-- The host bits (last 2 bits) cannot be all 1, nor all 0.
-- _Client D_ and _Client C_ do not have identical IP addresses.
+- Ağ adresi (ilk 30 bit) _Client D_ ve _Client C_ için aynı olmalıdır.
+- Host bitlerinin ikiside 1 ya da ikiside 0 olamaz.
+- _Client D_ ve _Client C_ aynı IP adreslerine sahip olamaz.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -349,14 +348,14 @@ The answers can then be any address, as long as they meet the following conditio
   <br>
   <br>
 
-This exercise introduces the use of the **switch** (_Switch S_ in this example). The switch links multiple hosts of the same network together.
+Bu egezersiz **switch** kullanımını dahil etmektedir(_Switch S_ b örnekte switch'i temsil eder). Switch aynı ağdaki birden fazla hostu birbirine bağlar.
 <br>
 <br>
 
-**1.** _Client A_, _Client B_, and _Client C_ are all on the same network. Therefore, they must all have the same subnet mask. Since _Client C_ already has the mask _255.255.255.128_, the mask for _Interface B1_ and for _Interface A1_ will also be _255.255.255.128_ (or in slash notation: _/25_).
+**1.** _Client A_, _Client B_, ve _Client C_ hostlarının hepsi aynı ağdadır. Bu yüzden hepsinin alt ağ maskesi aynı olmalıdır. _Client C_ zaten _255.255.255.128_ maskesine sahiptir, _Interface B1_ ve for _Interface A1_ içinde alt ağ maskesi _255.255.255.128_ olacaktır (ya da _/25_).
 <br>
 <br>
-The IP address of _Interface B1_ and _Interface C1_ must be on the same network range as the IP of _Client A_. This range is:
+T_Interface B1_ ve _Interface C1_ hostlarının IP adresleri _Client A_ gibi alt ağ maskesinin aralığında olmalıdır.
 
   <center>
 
@@ -365,8 +364,7 @@ The IP address of _Interface B1_ and _Interface C1_ must be on the same network 
 ```
 
   </center>
-  Excluding of course the network address and the broadcast address.
-
+Tabii ki broadcast ve ağ adresi hariç.
   <div align="right">
   <b><a href="#top">↥ back to top</a></b>
 </div>
@@ -383,14 +381,13 @@ The IP address of _Interface B1_ and _Interface C1_ must be on the same network 
   <br>
   <br>
 
-This exercise introduces the **router**. The router is used to link multiple networks together. It does so with the use of multiple interfaces (_Interface R1_, _Interface R2_, and _Interface R3_ in this example).
+Bu egzersizde **router** kulanımınıda öğrenecegiz. Router, birden fazla ağı birbirine bağlamak için kullanılır ve bunu birden fazla arayüz ile gerçekleştirir.(_Interface R1_, _Interface R2_,  _Interface R3_).
 <br>
 <br>
 
-**1.** Since none of the masks on _Interface B1_, _Interface A1_, and _Interface R1_ are entered, we are free to choose our own subnet mask. A mask of **/24** is ideal as it leaves us with the entire 4th byte for the host address, and does not require binary calculations to find the range of possible host addresses.
+**1.** _Interface B1_, _Interface A1_, ve _Interface R1_ arayüzlerinde halihazırda sabitlenmiş bir alt ağ maskesi olmadığı için kendi alt ağ maskemizi seçebiliriz. **/24** ideal bir alt ağ maskesidir çünkü, hesaplamalar için ikili forma gerek kalmaz ve 4. byte'ın hepsini host adresi için bırakır.<br>
 <br>
-<br>
-The IP address of _Interface B1_ and _Interface R1_ must have the same network address as the IP address of _Interface A1_. With a subnet of _/24_, the possible range is:
+_Interface B1_ ve _Interface R1_, _Interface A1_ ile aynı ağ adresine sahip olmalıdır. _/24_, alt ağ maskesi ile mümkün olan adres aralığı:
 
   <center>
 
@@ -399,11 +396,11 @@ The IP address of _Interface B1_ and _Interface R1_ must have the same network a
 ```
 
   </center>
-  Excluding the network address and the broadcast address.
+  Broadcast adresi ve ağ adresi hariç.
   <br>
   <br>
 
-Note that we did not interact with the router _Interface R2_ and _Interface R3_, since none of our communications had to reach these sides of the router.
+Router'ımızın _Interface R2_ ve _Interface R3_, arayüzleriyle o taraflar ile bir bağlantı kurmaya çalışmadığımız için ilgilenmediğimizi dikkate alın.
 
   <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -421,20 +418,22 @@ Note that we did not interact with the router _Interface R2_ and _Interface R3_,
   <br>
   <br>
 
-This level introduces **routes**. A route contains 2 fields, the first one is the **destination** of outbound packets, the second one is the **next hop** of the packets.
+Bu egzersizde **routes** konusuna giriş yapıyoruz. Bir rota/route'un iki alanı vardır, ilki gönderilecek paketlerin hedefi/**destination** , ikincisi ise gönderilecek paketlerin ikinci durağı/**next hop**.
 <br>
 
-The **destination** _default_ is equivalent to _0.0.0.0/0_, which will send the packets indiscriminately to the first network address it encounters. A destination address of _122.3.5.3/24_ would send the packets to the network _122.3.5.0_.
+
+ **Destination** _default_ olunca  _0.0.0.0/0_'a eşittir ve bu durumda paketleri ayrım yapmaksızın karşılaştığı ilk ağ adresine gönderecektir. Destination adresi olan _122.3.5.3/24_ IP adresi, paketi _122.3.5.0_ adresine gönderecektir.
 
   <br>
-  The **next hop** is the IP address of the next  router (or internet) interface to which the interface of the current machine must send its packets. 
+  
+   Sıradaki durak/**next hop** sıradaki router'ın adresidir.
   <br>
   <br>
 
-**1.** _Client A_ only has 1 route through which it can send its packets. There is no use specifying a numbered destination. The destination _default_ will send the packets to the only path available.
+**1.** _Client A_ paketlerini gönderebileceği sadece 1 route'a sahip. Bu noktada destination değerini özelleştirmeye gerek yok. Destination değeri _default_ olarak kalabilir.
 <br>
 <br>
-The next hop address must be the IP address of the next router's interface on the packets' way. The next interface is _Interface R1_, with the IP address of _54.117.30.126_. Note that the next interface is not _Interface A1_, since this is the sender's own interface.
+Bir sonraki durak/next hop, paketlerin yolundaki bir sonraki yönlendiricinin arayüzünün IP adresi olmalıdır. Sonraki arayüz, _54.117.30.126_ IP adresine sahip _Arayüz R1_'dir. Bir sonraki arayüzün, gönderenin kendi arayüzü olduğundan, _Arabirim A1_ olmadığını unutmayın.
 
   <div align="right">
   <b><a href="#top">↥ back to top</a></b>
