@@ -1,35 +1,35 @@
 > **Want to see 42 Quebec in 3D?**  
 > **:arrow_right: https://mini42qc.vercel.app/ :arrow_left:**
 
-# Guide to NetPractice
+# NetPractice Rehberi
 
 ![netpractice logo](img/NetPractice.png)
 
 <div id="top"></div>
 
-## Other Languages
+## Diğer Diller
 
 [Korean](README.ko.md)
 <br>
 [French](README.fr.md)
 <br>
-[Türkçe](README.tr.md)
+[English](README.md)
 
-## Table of Contents
+## İçerik Tablosu
 
-- [Important concepts](#important-concepts)
+- [Önemli Konseptler](#important-concepts)
   - [TCP](#tcp-transport-layer)
   - [IP address](#ip-address-network-layer)
   - [Subnet mask](#subnet-mask)
   - [Switch](#switch)
   - [Router](#router)
-- [Levels](#levels)
+- [Leveller](#levels)
 
 ---
 
-## Important Concepts
+## Önemli Konseptler
 
-### TCP: Transport Layer
+### TCP: Transport Layer/Transfer Katmanı
 
 </br>
 <p align="center">
@@ -37,9 +37,10 @@
 </p>
 </br>
 
-TCP stands for **Transmission Control Protocol**. It is a communications standard that enables application programs and devices to exchange messages over a network. It is used to send packets across the internet.
+TCP, **Transfer/İletim Kontrol Protokolü anlamına gelir**. Bu uygulamaların ve cihazların bir ağda iletişim kurmalarını sağlayan bir standarttır. İnternet üzerinden paket gönderilmesini sağlar.
 
-TCP guarantees the integrity of the data being communicated over a network. Before it transmits data, TCP establishes a connection between a source and its destination, which remains active until communication begins. It then breaks large amounts of data into smaller packets, while ensuring end-to-end delivery without loss of any data.
+TCP, bir ağ üzerinden iletilen verilerin bütünlüğünü garanti eder.
+Data teslim için gönderilmeden önce, TCP kaynak ve hedef arasında bir bağlantı oluşturur. Daha sonra bağlantı başlar ve TCP büyük paketleri küçük paketlere dönüştürerek uçtan uca teslim eder. Bunun sayesinde herhangi bir paket kaybı yaşanmaz.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -48,7 +49,7 @@ TCP guarantees the integrity of the data being communicated over a network. Befo
 
 ---
 
-### IP Address: Network Layer
+### IP Address: Network Layer/Ağ Katmanı
 
 </br>
 <p align="center">
