@@ -194,7 +194,7 @@ Maskeleme aynı zamanda Classless Inter-Domain Routing (CIDR) ile de gösterileb
 </p>
 </br>
 
-A switch connects multiple devices together in a single network. Unlike a router, the switch does not have any interfaces since it only distributes packets to its local network, and cannot talk directly to a network outside of its own.
+Bir switch bir ağın içindeki birden fazla cihazı birbirine bağlamaya yarar. Router'ın tersine switch herhangi bir arayüze sahip değildir, bir lokal ağ üzerinde paket dağıtımı yapar ve direkt olarak kendi başına internete bağlanamaz.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -210,10 +210,11 @@ A switch connects multiple devices together in a single network. Unlike a router
   <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/route1.png?raw=true" height=200 alt="router"></kbd>
 </p>
 </br>
+router: yönlendirici
 
-Just as the switch connects multiple devices on a single network, the router connects multiple networks together. The router has an interface for each network it connects to.
+Switch birden fazla cihazı birbirine bağlarken, router birden fazla ağı birbirine bağlar. Router ona bağlanan her ağ için bir arayüze/interface sahiptir.
 
-Since the router separates different networks, the range of possible IP addresses on one of its interfaces must not overlap with the range of its other interfaces. An overlap in the IP address range would imply that the interfaces are on the same network.
+Router farklı ağları ayırdığından, arayüzlerinden birindeki olası IP adreslerinin aralığı diğer arayüzlerin aralığıyla çakışmamalıdır. IP adresi aralığındaki bir çakışma, arayüzlerin aynı ağ üzerinde olduğu anlamına gelir.
 </br>
 </br>
 
@@ -224,12 +225,12 @@ Since the router separates different networks, the range of possible IP addresse
   <kbd><img src="https://github.com/lpaube/NetPractice/blob/main/img/routing_table1.png?raw=true" height=150 alt="routing_table"></kbd>
 </p>
 </br>
+routing table: yönlendirme tablosu
 
-A routing table is a data table stored in a router or a network host that lists the routes to particular network destinations. In NetPractice, the routing table consists of 2 elements:
+Yönlendirme tablosu, bir yönlendiricide veya host bilgisayarında saklanan ve belirli ağ hedeflerine giden adresleri listeleyen bir veri tablosudur. NetPractice'te yönlendirme tablosu 2 öğeden oluşur:
+- **Destination**: Hedef (Destination), gönderilecek verinin hedefindeki hostun olduğu ağ adresini tanımlar. Default/Varsayılan veya `0.0.0.0/0` rotası hedef IP adress rotasından başka rota yoksa durumu etkilemez. Varsayılan rota, paketleri belirli bir hedef vermeden rotalarına göndermek için sonraki next-hope/atlama adresini kullanacaktır. Varsayılan rota herhangi bir ağ ile eşleşecektir.
 
-- **Destination**: The destination specifies a network address on which a host is the end target of the packets. The route of `default` or `0.0.0.0/0`, is the route that takes effect when no other route is available for an IP destination address. The default route will use the next-hop address to send the packets on their way without giving a specific destination. The default route will match any network.
-
-- **Next hop**: The next hop refers to the next closest router a packet can go through. It is the IP address of the next router on the packet's way. Every single router maintains its routing table with a next hop address.
+- **Next hop**: Next hop, ağ içinde bir sonraki yönlendirici/router'ın adresini tutar. Her router yönlendirme tablosunu bir sıradaki router'a kadar olan hostlar ile sınırlar.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
