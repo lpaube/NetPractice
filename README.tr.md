@@ -4,7 +4,7 @@
 # NetPractice Rehberi
 
 ![netpractice logo](img/NetPractice.png)
-
+ceviri: emre akdik
 <div id="top"></div>
 
 ## Diğer Diller
@@ -166,7 +166,7 @@ Kullanılması mümkün olan IP adresi aralığını ortaya çıkarmak için ağ
 
 ```
 104.198.241.0   | Ağ adresini tanımlamak için özel olarak ayrılmıştır.
-104.198.241.127 | Ağdaki tüm cihazlara iletim yapılabilmesi için kullanılan broadcast adresi için özeö olarak ayrılmıştır.
+104.198.241.127 | Ağdaki tüm cihazlara iletim yapılabilmesi için kullanılan broadcast adresi için özel olarak ayrılmıştır.
 ```
 
 Böylelikle, gerçek IP adresi aralığımız `104.198.241.1 - 104.198.241.126` haline gelir, [IP calculator](https://www.calculator.net/ip-subnet-calculator.html) ile birlikte kolayca bu hesaplamalara ulaşabilirsiniz.
@@ -177,7 +177,7 @@ Böylelikle, gerçek IP adresi aralığımız `104.198.241.1 - 104.198.241.126` 
 
 Maskeleme aynı zamanda Classless Inter-Domain Routing (CIDR) ile de gösterilebilir. Bu form "/" ile başlar ve sonrasında ağ adresi olarak tanımlanan bitlerin sayısıyla devam eder ve bu şekilde kullanılır.
 
-Şöyle ki, `255.255.255.128` maskesinin, CIDR Notatıon karşılığı `/25`tir, yani bu 32 bitten 25 tanesinin ağ adresini tanımladığını söyler.
+Şöyle ki, `255.255.255.128` maskesinin, CIDR Notatıon karşılığı `/25`tir, yani bu 32 bitten 25 tanesinin 1 olduğunu ve ağ adresini tanımladığını söyler.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
