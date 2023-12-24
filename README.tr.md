@@ -37,7 +37,7 @@
 </p>
 </br>
 
-TCP, **Transfer/İletim Kontrol Protokolü anlamına gelir**. Bu uygulamaların ve cihazların bir ağda iletişim kurmalarını sağlayan bir standarttır. İnternet üzerinden paket gönderilmesini sağlar.
+TCP, **İletim Kontrol Protokolü anlamına gelir**. Bu uygulamaların ve cihazların bir ağda iletişim kurmalarını sağlayan bir standarttır. İnternet üzerinden paket gönderilmesini sağlar.
 
 TCP, bir ağ üzerinden iletilen verilerin bütünlüğünü garanti eder.
 Data teslim için gönderilmeden önce, TCP kaynak ve hedef arasında bir bağlantı oluşturur. Daha sonra bağlantı başlar ve TCP büyük paketleri küçük paketlere dönüştürerek uçtan uca teslim eder. Bunun sayesinde herhangi bir paket kaybı yaşanmaz.
@@ -57,17 +57,17 @@ Data teslim için gönderilmeden önce, TCP kaynak ve hedef arasında bir bağla
 </p>
 </br>
 
-IP is part of an internet protocol suite, which also includes the transmission control protocol. Together, these two are known as TCP/IP. The internet protocol suite governs rules for packetizing, addressing, transmitting, routing, and receiving data over networks.
+IP, iletim kontrol protokolünü de içeren bir internet protokol paketinin parçasıdır. Bu parçalar birlikte TCP/IP olarak bilinirler. İnternet protokol paketi, ağlar üzerinden verinin paketlenmesi, adreslenmesi, iletilmesi, yönlendirilmesi ve alınmasına ilişkin kuralları yönetir.
 
-IP addressing is a logical means of assigning addresses to devices on a network. Each device connected to the internet requires a unique IP address.
+IP adreslemeyi basitçe, bir ağdaki bir cihaza IP ataması yapılması olarak açıklayabiliriz. İnternete bağlı olan her cihazın kendisine özgü bir IP adresine sahip olması zorunludur.
 
-An IP address has two parts; one part identifies the host such as a computer or other device, and the other part identifies the network it belongs to. TCP/IP uses a [subnet mask](#subnet-mask) to separate them.
+Bir IP adresinin iki parçası vardır; parçalardan biri cihazı yani host'u tanımlar, diğer parça ise bu cihazın ait olduğu ağı tanımlar. TCP/IP bu parçaları ayrıştırabilmek için [subnet mask/alt ağ maskesi](#subnet-mask) kullanır.
 </br>
 </br>
 
 #### IPv4 vs. IPv6
 
-IP addresses come in 2 versions--IPv4 and IPv6:
+IP adresleri iki versiyona sahiptir. Bunlar IPv4 ve IPv6 versiyonlarıdır.
 <br>
 
 <p align="center">
@@ -75,17 +75,17 @@ IP addresses come in 2 versions--IPv4 and IPv6:
 </p>
 <br>
 
-Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. However, only IPv4 addresses are used in NetPractice.
+Internet Protokolü versiyon 4 (IPv4) 32-bitlik sayılar ile tanımlanır. Fakat internetin büyümesi ile birlikte ve IPv4'teki müsait IP adresi sayısının tükenmeye başlaması ile birlikte, yeni bir versiyon olan ve 128 bit kullanan IPv6 adreslemesi 1998'de standartlaştırılmıştır. Bu konuya değinmiş olsakta, NetPractice projesinde sadece IPv4 kullanılıyor.
 </br>
 </br>
 
 #### Public Address vs. Private Address
 
-A public IP address is an IP address that can be accessed directly over the internet and is assigned to your network router by your internet service provider (ISP). A public (or external) IP address helps you connect to the internet from inside your network, to outside your network.
+Public IP adresi, doğrudan internet üzerinden erişilebilen ve internet servis sağlayıcınız (mesela TTNET) tarafından ağ yönlendiricinize/modeminize atanan bir IP adresidir. Public adress/Açık adres, evimizdeki lokal ağımızdan internete bağlanmamızı sağlayan IP adresidir.
 
-A private IP address is an address your network router assigns to your device. Each device within the same network is assigned a unique private IP address (sometimes called a private network address) — this is how devices on the same internal network talk to each other.
+Private adress/Özel Adres yönlendiricimizin/modemimizin bize kendi ağımız içerisinde atadığı özel IP adresimizdir. Aynı ağdaki her cihaz kendisine özgü bir IP adresine sahiptir (bazen özel ağ adresi olarak geçebilir) - bunun sayesinde aynı ağın içindeki cihazlar birbirleriyle iletişim kurabiliyorlar.
 
-When a network is connected to the internet, it cannot use an IP address from the reserved private IP addresses. The following ranges are reserved for private IP addresses:
+Bir ağ internete bağlandığında özel/private IP adresleri için ayrılmış/rezerve edilmiş IP adreslerini kullanamazlar. Aşağıdaki IP aralıkları private IP adresleri için rezerve edilmiştir:
 
 ```
 192.168.0.0 – 192.168.255.255 (65,536 IP addresses)
