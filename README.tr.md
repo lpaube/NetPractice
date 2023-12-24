@@ -246,7 +246,7 @@ Yönlendirme tablosu, bir yönlendiricide veya host bilgisayarında saklanan ve 
   <br>
   <br>
 
-**1.** Client _A_ ve Client _B_ aynı ağda oldukları için, IP adresleri subnet maskesi ile birlikte aynı ağır temsil etmelidir.
+**1.** Client _A_ ve Client _B_ aynı ağda oldukları için, IP adresleri subnet maskesi ile birlikte aynı ağı temsil etmelidir.
 <br>
 _255.255.255.0_, IP adresinin 3 byte'ının ağ adresini, 1 byte'ının ise host adresini gösterdiğini söyleyen bir subnet maskesidir. Aynı ağda olunduğu sürece sadece host kısmı değişebilir.
 <br>
@@ -451,7 +451,7 @@ Bir sonraki durak/next hop, paketlerin yolundaki bir sonraki yönlendiricinin ar
   <br>
   <br>
 
-This level introduces the **internet**. The internet behaves like a router. However, if an interface is connected directly or indirectly to the internet, it **cannot** have an IP address in the following reserved private IP ranges:
+Bu egzersizde **internet** konusuna giriş yapıyoruz. İnternet, router gibi davranmaktadır. Bir arayüz internete direkt ya da dolaylı olarak bağlıysa aşağıdaki IP adresi aralıklarını kullanamaz:
 
 ```
 192.168.0.0 - 192.168.255.255 (65,536 IP addresses)
@@ -459,12 +459,12 @@ This level introduces the **internet**. The internet behaves like a router. Howe
 10.0.0.0 - 10.255.255.255     (16,777,216 IP addresses)
 ```
 
-**1.** The **next hop** of the internet is already entered, and matches the IP address of the _Interface R2_. Therefore we only need to bother with the destination of the internet.
+**1.**  İnternetin **next hop**'u halihazırda ayarlanmış ve _Interface R2_'nin IP adresi ile uyuşuyor. Burada sadece internetin destination değeri ile ilgileneceğiz.
 <br>
 <br>
-The internet must send its packets to _Client A_. To do so, the internet's destination must match the network address of _Client A_. Let's find the network address of _Client A_:
+İnternet paketlerini _Client A_'ya göndermeli. O zaman, internetin destination değerindeki IP adresi _Client A_'nın ağ adresi ile uyuşmalıdır. _Client A_'nın ağ adresini bulalım:
 <br>
-_Client A_'s mask is _255.255.255.128_, which is equivalent to _/25_. This means that the first 25 bits of its IP address are its network address. We know then that the first 3 bytes (24 bits) of its IP address make part of its network address:
+_Client A_'nın alt ağ maskesi _255.255.255.128_, yani _/25_.Bu demek oluyor ki IP adresinin 25 bit'i ağ adresidir.O zaman ilk 3 byte'ın ağ adresine dahil olduğunu biliriz:
 
   <center>
 
@@ -474,12 +474,12 @@ _Client A_'s mask is _255.255.255.128_, which is equivalent to _/25_. This means
 
   </center>
 
-We now only need to find out if the 25th bit is a 1 or a 0.
+Sadece 25. bitin 1 mi 0 mı olduğunu bulmamız gerekiyor.
 <br>
-If we convert the number 227 to binary, we get `11100011`. The first digit, which corresponds to the 25th bit, is a 1. Since only the 25th bit is part of the network address and not the remaining 7 bits, we get `10000000` for the last byte of the network address, which is 128 in decimal.
+227 sayısını ikili forma çevirirsek `11100011` karşılığını alır. bu bize 25. bitin 1 olduğunu gösterir. Bu bize sadece 25.bitten sonrasını host olarak değiştirebileceğimiz gösterir ve 25. bitin 1 olmasının karşılığı ise 128'dir.
 <br>
 <br>
-The full network address is:
+Sonuç olarak ağ adresi:
 
   <center>
 
@@ -489,13 +489,13 @@ The full network address is:
 
   </center>
 
-With a range of _40.178.145.129 - 40.178.145.254_ for its host addresses.
+_40.178.145.129 - 40.178.145.254_ aralığı ise host adresinindir.
 <br>
 <br>
-We can now put this address of **40.178.145.128** in the Internet destination. The **/25** following the destination address represents the mask applied to its address.
+Böylelikle **40.178.145.128** adresini internetin destination değerine yazabiliriz. Devamına yazılan **/25** ise alt ağ maskesini tanımlamaktadır.
 <br>
 <br>
-A destination of _40.178.145.227/25_ is equivalent to the destination address _40.178.145.128/25_, since the mask of _/25_ will turn all the bits after the 25th to 0 to get the destination's network address.
+ _40.178.145.227/25_ hedefinin destination adresi _40.178.145.128/25_'dir, alt ağ maskesinin _/25_ olması kalan tüm bitlerin 0 olmasını sağlar.
 
   <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -513,30 +513,29 @@ A destination of _40.178.145.227/25_ is equivalent to the destination address _4
   <br>
   <br>
 
-This level introduces the concept of **overlaps**. The range of IP addresses of a network must not overlap the range of IP addresses of a separate network. Networks are separated by routers.
+Bu egzersiz **overlaps** içeriğine giriş yapmamızı sağlar. Bir ağın IP adresleri aralığı, ayrı bir ağın IP adresleri aralığıyla örtüşmemelidir. Ağlar yönlendiricilerle ayrılır.
 <br>
 <br>
 
-**1.** We have 3 separate networks:
+**1.** 3 adet ayrılmış ağımız vardır:
 <br>
 
-1. Between _Client A_ and _Router R1_.
-2. Between _Router R1_ and _Router R2_.
-3. Between _Router R2_ and _Client C_.
+1. _Client A_ ve _Router R1_ arası.
+2. _Router R1_ ve _Router R2_ arası.
+3. _Router R2_ ve _Client C_ arası.
 
-For _Interface A1_, we cannot choose our IP address freely since the IP of _Interface R11_ is already entered. Also, if we give it a mask of _/24_, the IP address range will overlap with the range of _Interface R12_, which is already entered. They would both be in the range of _93.198.14.0 - 93.198.14.255_.
+_Interface A1_ için, _Interface R11_'in IP'si zaten girilmiş olduğundan IP adresimizi serbestçe seçemiyoruz. Ayrıca _/24_ maskesini verirsek, IP adres aralığı zaten girilmiş olan _Interface R12_ aralığıyla örtüşecektir. Her ikisi de _93.198.14.0 - 93.198.14.255_ aralığında olacaktır.
 <br>
 <br>
 
-Since we need addresses for 3 separate networks, it is convenient to split the last bytes of the address into 4 or more address ranges. We do this by using a mask of _/26_ or higher. The mask of _/28_ for example will give us 16 ranges, from which we use the following 3:
-
+3 ayrı ağ için adreslere ihtiyacımız olduğundan, adresin son baytlarını 4 veya daha fazla adres aralığına bölmek uygundur. Bunu _/26_ veya daha yüksek bir maske kullanarak yapıyoruz. Örneğin _/28_ maskesi bize 16 aralık verecektir ve bunlardan aşağıdaki 3'ü kullanacağız:
 ```
 93.198.14.1 - 93.198.14.14    (Client A to Router R1)
 93.198.14.65 - 93.198.14.78   (Router R1 to Router R2)
 93.198.14.241 - 93.198.14.254 (Router R2 to Client C)
 ```
 
-To calculate the possible ranges of a mask:
+Mümkün olan ağ maskelerini hesaplamak için:
 <br>
 https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=93.198.14.2&ctype=ipv4&printit=0&x=97&y=13
 
@@ -556,21 +555,21 @@ https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=9
   <br>
   <br>
 
-**1.** The hosts _Client C_ and _Client D_ will send packets to the internet, then the internet will respond by sending packets all the way back to the initial sender. To send these packets, the internet uses the destination _49.175.13.0/26_ to send the packets to the networks in the range of `49.175.13.0 - 49.175.13.63`.
+**1.****1.** _Client C_ ve _Client D_ ana bilgisayarları internete paket gönderecek, ardından internet, paketleri ilk göndericiye geri göndererek yanıt verecektir. Bu paketleri göndermek için internet, paketleri `49.175.13.0 - 49.175.13.63` aralığındaki ağlara göndermek için _49.175.13.0/26_ hedefini kullanır.
 <br>
 <br>
-All the receiving networks must be in this range, without overlapping each other.
+Tüm alıcı ağlar birbiriyle örtüşmeden bu aralıkta olmalıdır.
 <br>
 <br>
 
-**2.** On _Interface R23_ and _Interface R22_ we use the mask _255.255.255.240_ (or _/28_), to conveniently split the range of _/26_ from the destination address, into 4 separate ranges. This separation of 4 is necessary since we have the following 3 networks that must not overlap:
+**2.** _Interface R23_ and _Interface R22_ arayüzlerinde hedef adresinden _/26_ aralığını uygun şekilde 4 ayrı aralığa böl k için. _255.255.255.240_ maskesini kullanırız (ya da _/28_). Üst üste gelmemesi gereken aşağıdaki 3 ağa sahip olduğumuz için 4'ün ayrılması gereklidir:
 <br>
 
-1. _Router R1_ to _Router R2_.
-2. _Router R2_ to _Client C_.
-3. _Router R2_ to _Client D_.
+1. _Router R1_  -> _Router R2_.
+2. _Router R2_  -> _Client C_.
+3. _Router R2_  -> _Client D_.
 
-Each of these networks can then be attributed one of the following IP ranges with a mask of _/28_:
+Bu ağların her birine daha sonra _/28_ maskesiyle aşağıdaki IP aralıklarından biri atanabilir:
 
 ```
 49.175.13.0 - 49.175.13.15
@@ -579,11 +578,11 @@ Each of these networks can then be attributed one of the following IP ranges wit
 49.175.13.48 - 49.175.13.63
 ```
 
-Note that the network address (first) and the broadcast address (last) must be excluded from each range.
+Ağ adresinin (ilk) ve yayın adresinin (sonuncu) her aralıktan hariç tutulması gerektiğini unutmayın.
 <br>
 <br>
 
-**3.** The destination and next hop for the internet are already entered. We only need to enter the next hop for the _Router R2_, which is the IP on the _Interface R21_.
+**3.** İnternet için destination ve next hop zaten girilmiştir. Yalnızca _Interface R21_ üzerindeki IP olan _Router R2_ için bir sonraki hop'a girmemiz gerekiyor.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -601,20 +600,20 @@ Note that the network address (first) and the broadcast address (last) must be e
   <br>
   <br>
 
-This level is quite straightforward since the internet does not initially send its packets to a specific network. Therefore, the separate networks do not need to share a common address range. I would suggest simply following the 6 goals of the level one by one until the level is completed.
+İnternet başlangıçta paketlerini belirli bir ağa göndermediğinden bu seviye oldukça basittir. Bu nedenle ayrı ağların ortak bir adres aralığını paylaşmasına gerek yoktur. Seviye tamamlanana kadar seviyedeki 6 hedefi tek tek takip etmenizi öneririm.
 <br>
 <br>
-Remember not to use the network addresses from the reserved private IP ranges.
+Ayrılmış özel IP aralıklarındaki ağ adreslerini kullanmamayı unutmayın.
 <br>
 <br>
 
-**1.** **Goal 3** states that we must connect _meson_ with the _internet_. The _internet_ will then have to respond to _meson_, so we enter _meson's_ network address in the _internet's_ destination.
+**1.** **Hedef 3**, _meson_'u _internet_'e bağlamamız gerektiğini belirtir. Daha sonra _internet_'in _meson_'a yanıt vermesi gerekecek, bu nedenle _internet'in_ hedefine _meson'un_ ağ adresini giriyoruz.
 <br>
 <br>
-**Goal 6** states that we must connect _cation_ with the _internet_, so we enter _cation's_ network address in the _internet's_ destination.
+**Hedef 6**, _cation_'ı _internet_'e bağlamamız gerektiğini belirtiyor, bu nedenle _cation'ın_ ağ adresini _internet'in_ hedefine giriyoruz.
 <br>
 <br>
-It is normal to have an empty field for the 3rd destination of the _internet_, and in _Router R1's_ destination. Not all fields of the routing tables need to be filled.
+_İnternet_'in 3. hedefi ve _Router R1'in_ hedefi için boş bir alanın olması normaldir. Yönlendirme tablolarının tüm alanlarının doldurulması gerekmez.
 
   <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -632,40 +631,40 @@ It is normal to have an empty field for the 3rd destination of the _internet_, a
   <br>
   <br>
 
-At this level, there are 4 different networks:
+Bu levelde 4 adet ayrı ağımız bulunmaktadır.
 <br>
 
-1. _Router R1_ to _Switch S1_
-2. _Router R1_ to _Router R2_
-3. _Router R2_ to _Client H4_
-4. _Router R2_ to _Client H3_
+1. _Router R1_ -> _Switch S1_
+2. _Router R1_ -> _Router R2_
+3. _Router R2_ -> _Client H4_
+4. _Router R2_ -> _Client H3_
    <br>
 
-**1.** The internet must be able to send its packets to all the hosts, so its destination must cover the range of networks of all the hosts.
+**1.** İnternet, paketlerini tüm hostlara gönderebilmelidir, dolayısıyla hedefi, tüm hostların ağ aralığını kapsamalıdır.
 <br>
 <br>
 
-_Interface R11_ and _Interface R13_ already have an IP address entered. This IP address only differs in its last byte. _Interface R11_ has for last byte **1**, and _Interface R13_ has for last byte **254**. To cover this wide range to IP addresses, we take a mask of **/24** for the _internet's_ destination. This destination will cover a range of `70.101.30.0 - 70.101.30.255`.
+_Arayüz R11_ ve _Arayüz R13_ zaten girilmiş bir IP adresine sahip. Bu IP adresi yalnızca son baytında farklılık gösterir. _Interface R11_ son bayt için **1** içerir ve _Interface R13_ son bayt için **254** içerir. Bu geniş IP adres aralığını kapsamak amacıyla, _internetin_ hedefi için **/24** maskesini alıyoruz. Bu hedef "70.101.30.0 - 70.101.30.255" aralığını kapsayacaktır.
 
   <br>
   <br>
 
-**2.** When choosing the IP addresses, we must make sure of 2 things:
+**2.** IP adreslerini seçerken 2 şeyden emin olmalıyız:
 <br>
 
-1. The IP address is covered by the _internet_ destination.
-2. The IP address range of the various networks does not overlap.
-   <br>
+1. IP adresi _internet_ hedefi kapsamındadır.
+2. Çeşitli ağların IP adresi aralığı çakışmıyor.
+    <br>
 
-With the IP addresses already entered (greyed out), let's examine the ranges covered by the various networks:
+Zaten girilen IP adresleri (gri renkte) ile çeşitli ağların kapsadığı aralıkları inceleyelim:
 <br>
 
-1. _Router R1_ to _Switch S1_ - Covers the range **70.101.30.0 - 70.101.30.127** (mask /25).
-2. _Router R2_ to _Client H4_ - Covers the range **70.101.30.128 - 70.101.30.191** (mask /26).
-3. _Router R1_ to _Router R2_ - Covers the range **70.101.30.252 - 70.101.30.255** (mask /30).
-4. _Router R2_ to _Client H3_ - ??? (mask ???).
+1. _Router R1_ - _Switch S1_ - **70.101.30.0 - 70.101.30.127** aralığını kapsar (maske /25).
+2. _Router R2_ - _Client H4_ - **70.101.30.128 - 70.101.30.191** aralığını kapsar (maske /26).
+3. _Router R1_ ila _Router R2_ - **70.101.30.252 - 70.101.30.255** aralığını kapsar (maske /30).
+4. _Router R2_'den _Client H3_'e - ??? (maske ???).
 
-The only IP addresses left for the network "Router R2 to Client H3" are **70.101.30.192 - 70.101.30.251**. We can pick any mask that will let us take 2 IP addresses from that range to put in _Interface R22_ and _Interface R31_.
+"Router R2'den Client H3'e" ağı için kalan tek IP adresleri **70.101.30.192 - 70.101.30.251**'dir. _Interface R22_ ve _Interface R31_'e koymak için bu aralıktan 2 IP adresi almamıza izin verecek herhangi bir maskeyi seçebiliriz.
 
   <div align="right">
   <b><a href="#top">↥ back to top</a></b>
