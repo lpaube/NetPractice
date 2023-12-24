@@ -81,9 +81,9 @@ Internet Protokolü versiyon 4 (IPv4) 32-bitlik sayılar ile tanımlanır. Fakat
 
 #### Public Address vs. Private Address
 
-Public IP adresi, doğrudan internet üzerinden erişilebilen ve internet servis sağlayıcınız (mesela TTNET) tarafından ağ yönlendiricinize/modeminize atanan bir IP adresidir. Public adress/Açık adres, evimizdeki lokal ağımızdan internete bağlanmamızı sağlayan IP adresidir.
+Public IP adresi, doğrudan internet üzerinden erişilebilen ve internet servis sağlayıcınız (mesela TTNET) tarafından ağ yönlendiricinize/modeminize atanan bir IP adresidir. Public address/Açık adres, evimizdeki lokal ağımızdan internete bağlanmamızı sağlayan IP adresidir.
 
-Private adress/Özel Adres yönlendiricimizin/modemimizin bize kendi ağımız içerisinde atadığı özel IP adresimizdir. Aynı ağdaki her cihaz kendisine özgü bir IP adresine sahiptir (bazen özel ağ adresi olarak geçebilir) - bunun sayesinde aynı ağın içindeki cihazlar birbirleriyle iletişim kurabiliyorlar.
+Private address/Özel Adres yönlendiricimizin/modemimizin bize kendi ağımız içerisinde atadığı özel IP adresimizdir. Aynı ağdaki her cihaz kendisine özgü bir IP adresine sahiptir (bazen özel ağ adresi olarak geçebilir) - bunun sayesinde aynı ağın içindeki cihazlar birbirleriyle iletişim kurabiliyorlar.
 
 Bir ağ internete bağlandığında özel/private IP adresleri için ayrılmış/rezerve edilmiş IP adreslerini kullanamazlar. Aşağıdaki IP aralıkları private IP adresleri için rezerve edilmiştir:
 
@@ -108,76 +108,76 @@ Bir ağ internete bağlandığında özel/private IP adresleri için ayrılmış
 </p>
 </br>
 
-A subnet mask is a 32 bits (4 bytes) address used to distinguish between a network address and a host address in the IP address. It defines the range of IP addresses that can be used within a network or a subnet.
+Subnet Mask yani alt ağ maskesi, bir IP adresindeki ağ adresini ve host adresini ayrıştırmak için kullanılan 32 bitten oluşan bir adrestir. Bir ağda veya alt ağda tanımlanabilecek IP adresi aralığını tanımlar.
 </br>
 </br>
 
-#### Finding the network address
+#### Network/Ağ Adresini Bulmak
 
-The _Interface A1_ above has the following properties:
-
-```
-IP address | 104.198.241.125
-Mask       | 255.255.255.128
-```
-
-To determine which portion of the IP address is the network address, we need to apply the mask to the IP address. Let's first convert the mask to its binary form:
+ _Interface A1_ aşağıdaki özelliklere sahiptir:
 
 ```
-Mask | 11111111.11111111.11111111.10000000
+IP Adresi | 104.198.241.125
+Maske       | 255.255.255.128
 ```
 
-The bits of a mask that are 1 represent the network address, while the remaining bits of a mask that are 0 represent the host address. Let's now convert the IP address to its binary form:
+IP adresinin hangi bölümünün ağ adresi olduğunu belirlemek için IP adresine maske uygulamamız gerekir. Önce maskeyi ikili forma dönüştürelim:
+
+```
+Maske | 11111111.11111111.11111111.10000000
+```
+
+Bitlerdeki 1 olan kısımlar ağ adresinin temsil edildiği kısımlardır, geriye kalan 0'lar ise host adresinin temsil edildiği kısımlardır. Şimdi IP adresini ikili forma dönüştürelim:
 
 ```
 IP address | 01101000.11000110.11110001.01111101
 Mask       | 11111111.11111111.11111111.10000000
 ```
 
-We can now apply the mask to the IP address through a [bitwise AND](https://en.wikipedia.org/wiki/Bitwise_operation#AND) to find the network address of the IP:
+Şimdi ağ adresini bulabilmek için [bitwise AND](https://en.wikipedia.org/wiki/Bitwise_operation#AND) işlemi ile IP adresine maskeyi uygulayabiliriz:
 
 ```
 Network address | 01101000.11000110.11110001.00000000
 ```
 
-Which translates to a network address of `104.198.241.0`.
+Bu işlem sonrası ağ adresi şu şekildedir: `104.198.241.0`.
 </br>
 </br>
 
-#### Finding the range of host addresses
+#### Host Adreslerinin Aralığını Bulmak
 
-To determine what host addresses we can use on our network, we have to use the bits of our IP address dedicated to the host address. Let's use our previous IP address and mask:
+Ağımızda hangi host adreslerini kullanabileceğimizi belirlemek için IP adresimizin host adresine ayrılmış bitlerini belirlememiz gerekir. Önceki kullandığımız IP adresimizi ve maskemizi kullanalım:
 
 ```
 IP address | 01101000.11000110.11110001.01111101
 Mask       | 11111111.11111111.11111111.10000000
 ```
 
-The possible range of our host addresses is expressed through the last 7 bits of the mask which are all 0. Therefore, the range of host addresses is:
+Kullanmamız mümkün olan host adresı aralığı, maskedeki 0 olan son 7 bit olarak görünüyor. Öyleyse, host adresi aralığı aşağıdaki gibidir:
 
 ```
 BINARY  | 0000000 - 1111111
 DECIMAL | 0 - 127
 ```
 
-To get the range of possible IP addresses for our network, we add the range of host addresses to the network address. Our range of possible IP addresses becomes `104.198.241.0 - 104.198.241.127`.
+Kullanılması mümkün olan IP adresi aralığını ortaya çıkarmak için ağ adresimize IP adresi aralığını ekleriz. Sonuç olarak mümkün olan IP adresi aralığımız şu şekilde sonuçlanır: `104.198.241.0 - 104.198.241.127`.
 
-<ins>HOWEVER</ins>, the extremities of the range are reserved for specific uses and cannot be given to an interface:
+<ins>ANCAK</ins>, aralığın bazı kısımları özel olarak ayrılmıştır ve arayüzlere/cihazlara atanamaz:
 
 ```
-104.198.241.0   | Reserved to represent the network address.
-104.198.241.127 | Reserved as the broadcast address; used to send packets to all hosts of a network.
+104.198.241.0   | Ağ adresini tanımlamak için özel olarak ayrılmıştır.
+104.198.241.127 | Ağdaki tüm cihazlara iletim yapılabilmesi için kullanılan broadcast adresi için özeö olarak ayrılmıştır.
 ```
 
-Therefore, our real IP range becomes `104.198.241.1 - 104.198.241.126`, which could have been found using an [IP calculator](https://www.calculator.net/ip-subnet-calculator.html).
+Böylelikle, gerçek IP adresi aralığımız `104.198.241.1 - 104.198.241.126` haline gelir, [IP calculator](https://www.calculator.net/ip-subnet-calculator.html) ile birlikte kolayca bu hesaplamalara ulaşabilirsiniz.
 </br>
 </br>
 
 #### CIDR Notation (/24)
 
-The mask can also be represented with the Classless Inter-Domain Routing (CIDR). This form represents the mask as a slash "/", followed by the number of bits that serve as the network address.
+Maskeleme aynı zamanda Classless Inter-Domain Routing (CIDR) ile de gösterilebilir. Bu form "/" ile başlar ve sonrasında ağ adresi olarak tanımlanan bitlerin sayısıyla devam eder ve bu şekilde kullanılır.
 
-Therefore, the mask in the example above of `255.255.255.128`, is equivalent to a mask of `/25` using the CIDR notation, since 25 bits out of 32 bits represent the network address.
+Şöyle ki, `255.255.255.128` maskesinin, CIDR Notatıon karşılığı `/25`tir, yani bu 32 bitten 25 tanesinin ağ adresini tanımladığını söyler.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
