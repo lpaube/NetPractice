@@ -17,13 +17,13 @@
 
 ## İçindekiler
 
-- [Önemli Kavramlar](#onemli-kavramlar)
-  - [TCP](#tcp-iletim-katmani)
-  - [IP adresi](#ip-adresi-ag-katmani)
-  - [Alt Ağ Maskesi](#alt-ag-maskesi)
+- [Önemli Kavramlar](#önemli-kavramlar)
+  - [TCP](#tcp-iletim-katmanı)
+  - [IP adresi](#ip-adresi-ağ-katmanı)
+  - [Alt Ağ Maskesi](#alt-ağ-maskesi)
   - [Anahtar](#anahtar)
-  - [Yönlendirici](#yonlendirici)
-- [Bölümler](#bolumler)
+  - [Yönlendirici](#yönlendirici)
+- [Bölümler](#bölümler)
 
 ---
 
