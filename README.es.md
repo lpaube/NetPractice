@@ -42,7 +42,7 @@ TCP es el acrónimo de **Transmission Control Protocol** (Protocolo de control d
 TCP garantiza la integridad de los datos que se comunican a través de una red. Antes de transmitir datos, TCP establece una conexión entre un origen y su destino, que permanece activa hasta que comienza la comunicación. Luego divide grandes cantidades de datos en paquetes más pequeños, al tiempo que garantiza la entrega de un extremo a otro sin pérdida de datos.
 
 <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -93,7 +93,7 @@ Cuando una red está conectada a Internet, no puede utilizar una dirección IP d
 ```
 
 <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -179,7 +179,7 @@ La máscara también se puede representar con el Classless Inter-Domain Routing 
 Por lo tanto, la máscara en el ejemplo anterior de `255.255.255.128`,es equivalente a una máscara de `/25` usando la notación CIDR, ya que 25 bits de 32 bits representan la dirección de red.
 
 <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -196,7 +196,7 @@ Por lo tanto, la máscara en el ejemplo anterior de `255.255.255.128`,es equival
 Un switch (conmutador) conecta varios dispositivos en una sola red. A diferencia de un router (enrutador), el switch no tiene ninguna interfaz, ya que solo distribuye paquetes a su red local y no puede comunicarse directamente con una red fuera de la suya.
 
 <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -231,7 +231,7 @@ Una tabla de enrutamiento es una tabla de datos almacenada en un router o host d
 - **Next hop**: El next hop (siguiente salto) se refiere al siguiente router más cercano por el que puede pasar un paquete. Es la dirección IP del siguiente router en el camino del paquete. Cada router mantiene su tabla de enrutamiento con una dirección de siguiente salto.
 
 <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -263,7 +263,7 @@ La solución será cualquier valor en el rango **211.191.0.0 - 211.191.255.255**
 - **211.191.89.75:** Ya tomado por el host _Cliente C_.
 
 <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -332,7 +332,7 @@ Las respuestas pueden ser entonces cualquier dirección, siempre que cumplan las
 - _Cliente D_ y _Cliente C_ no tienen direcciones IP idénticas.
 
 <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -366,7 +366,7 @@ La dirección IP de _Interfaz B1_ y _Interfaz C1_ debe estar en el mismo rango d
   Excluyendo, por supuesto, la dirección de red y la dirección de transmisión.
 
   <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -404,7 +404,7 @@ La dirección IP de _Interfaz B1_ y _Interfaz R1_ debe tener la misma dirección
 Tenga en cuenta que no interactuamos con el router _Interface R2_ y _Interface R3_, ya que ninguna de nuestras comunicaciones tenía que llegar a estos lados del router.
 
   <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -435,7 +435,7 @@ El **destino** _predeterminado_ es equivalente a _0.0.0.0/0_, que enviará los p
 La dirección del siguiente salto debe ser la dirección IP de la interfaz del siguiente router en el camino de los paquetes. La siguiente interfaz es _Interfaz R1_, con la dirección IP de _54.117.30.126_. Tenga en cuenta que la siguiente interfaz no es _Interfaz A1_, ya que es la interfaz del propio remitente.
 
   <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -444,13 +444,13 @@ La dirección del siguiente salto debe ser la dirección IP de la interfaz del s
 ---
 
 <details>
-  <summary>Level 6</summary>
+  <summary>Nivel 6</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level6_paint.png?raw=true" alt="level6">
   <br>
   <br>
 
-This level introduces the **internet**. The internet behaves like a router. However, if an interface is connected directly or indirectly to the internet, it **cannot** have an IP address in the following reserved private IP ranges:
+Este nivel presenta **Internet**. Internet se comporta como un router. Sin embargo, si una interfaz está conectada directa o indirectamente a Internet, **no puede** tener una dirección IP en los siguientes rangos de IP privados reservados:
 
 ```
 192.168.0.0 - 192.168.255.255 (65,536 IP addresses)
@@ -458,12 +458,12 @@ This level introduces the **internet**. The internet behaves like a router. Howe
 10.0.0.0 - 10.255.255.255     (16,777,216 IP addresses)
 ```
 
-**1.** The **next hop** of the internet is already entered, and matches the IP address of the _Interface R2_. Therefore we only need to bother with the destination of the internet.
+**1.** El **siguiente salto** de Internet ya está ingresado y coincide con la dirección IP de la _Interfaz R2_. Por lo tanto sólo debemos preocuparnos del destino de Internet.
 <br>
 <br>
-The internet must send its packets to _Client A_. To do so, the internet's destination must match the network address of _Client A_. Let's find the network address of _Client A_:
+Internet debe enviar sus paquetes al _Cliente A_. Para hacerlo, el destino de Internet debe coincidir con la dirección de red del _Cliente A_. Busquemos la dirección de red del _Cliente A_:
 <br>
-_Client A_'s mask is _255.255.255.128_, which is equivalent to _/25_. This means that the first 25 bits of its IP address are its network address. We know then that the first 3 bytes (24 bits) of its IP address make part of its network address:
+La máscara del _Cliente A_ es _255.255.255.128_, que equivale a _/25_. Esto significa que los primeros 25 bits de su dirección IP son su dirección de red. Sabemos entonces que los primeros 3 bytes (24 bits) de su dirección IP forman parte de su dirección de red:
 
   <center>
 
@@ -473,12 +473,12 @@ _Client A_'s mask is _255.255.255.128_, which is equivalent to _/25_. This means
 
   </center>
 
-We now only need to find out if the 25th bit is a 1 or a 0.
+Ahora sólo necesitamos saber si el bit 25 es un 1 o un 0.
 <br>
-If we convert the number 227 to binary, we get `11100011`. The first digit, which corresponds to the 25th bit, is a 1. Since only the 25th bit is part of the network address and not the remaining 7 bits, we get `10000000` for the last byte of the network address, which is 128 in decimal.
+Si convertimos el número 227 a binario, obtenemos "11100011". El primer dígito, que corresponde al bit 25, es un 1. Dado que solo el bit 25 es parte de la dirección de red y no los 7 bits restantes, obtenemos `10000000` para el último byte de la dirección de red, que es 128 en decimales.
 <br>
 <br>
-The full network address is:
+La dirección de red completa es:
 
   <center>
 
@@ -488,16 +488,16 @@ The full network address is:
 
   </center>
 
-With a range of _40.178.145.129 - 40.178.145.254_ for its host addresses.
+Con un rango de _40.178.145.129 - 40.178.145.254_ para sus direcciones de host.
 <br>
 <br>
-We can now put this address of **40.178.145.128** in the Internet destination. The **/25** following the destination address represents the mask applied to its address.
+Ya podemos poner esta dirección de **40.178.145.128** en el destino de Internet. El **/25** que sigue a la dirección de destino representa la máscara aplicada a su dirección.
 <br>
 <br>
-A destination of _40.178.145.227/25_ is equivalent to the destination address _40.178.145.128/25_, since the mask of _/25_ will turn all the bits after the 25th to 0 to get the destination's network address.
+Un destino de _40.178.145.227/25_ es equivalente a la dirección de destino _40.178.145.128/25_, ya que la máscara de _/25_ convertirá todos los bits después del 25 a 0 para obtener la dirección de red del destino.
 
   <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -506,41 +506,41 @@ A destination of _40.178.145.227/25_ is equivalent to the destination address _4
 ---
 
 <details>
-  <summary>Level 7</summary>
+  <summary>Nivel 7</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level7_paint.png?raw=true" alt="level7">
   <br>
   <br>
 
-This level introduces the concept of **overlaps**. The range of IP addresses of a network must not overlap the range of IP addresses of a separate network. Networks are separated by routers.
+Este nivel introduce el concepto de **superposiciones** (overlaps). El rango de direcciones IP de una red no debe superponerse al rango de direcciones IP de una red separada. Las redes están separadas por routers (enrutadores).
 <br>
 <br>
 
-**1.** We have 3 separate networks:
+**1.** Contamos con 3 redes separadas:
 <br>
 
-1. Between _Client A_ and _Router R1_.
-2. Between _Router R1_ and _Router R2_.
-3. Between _Router R2_ and _Client C_.
+1. Entre _Client A_ y _Router R1_.
+2. Entre _Router R1_ y _Router R2_.
+3. Entre _Router R2_ y _Client C_.
 
-For _Interface A1_, we cannot choose our IP address freely since the IP of _Interface R11_ is already entered. Also, if we give it a mask of _/24_, the IP address range will overlap with the range of _Interface R12_, which is already entered. They would both be in the range of _93.198.14.0 - 93.198.14.255_.
+Para _Interfaz A1_, no podemos elegir nuestra dirección IP libremente ya que la IP de _Interfaz R11_ ya está ingresada. Además, si le damos una máscara de _/24_, el rango de direcciones IP se superpondrá con el rango de _Interfaz R12_, que ya está ingresado. Ambos estarían en el rango de _93.198.14.0 - 93.198.14.255_.
 <br>
 <br>
 
-Since we need addresses for 3 separate networks, it is convenient to split the last bytes of the address into 4 or more address ranges. We do this by using a mask of _/26_ or higher. The mask of _/28_ for example will give us 16 ranges, from which we use the following 3:
+Como necesitamos direcciones para 3 redes separadas, es conveniente dividir los últimos bytes de la dirección en 4 o más rangos de direcciones. Hacemos esto usando una máscara de _/26_ o superior. La máscara de _/28_ por ejemplo nos dará 16 rangos, de los cuales usamos los siguientes 3:
 
 ```
-93.198.14.1 - 93.198.14.14    (Client A to Router R1)
-93.198.14.65 - 93.198.14.78   (Router R1 to Router R2)
-93.198.14.241 - 93.198.14.254 (Router R2 to Client C)
+93.198.14.1 - 93.198.14.14    (Client A al Router R1)
+93.198.14.65 - 93.198.14.78   (Router R1 al Router R2)
+93.198.14.241 - 93.198.14.254 (Router R2 al Client C)
 ```
 
-To calculate the possible ranges of a mask:
+Para calcular los posibles rangos de una máscara:
 <br>
 https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=93.198.14.2&ctype=ipv4&printit=0&x=97&y=13
 
   <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -549,27 +549,27 @@ https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=9
 ---
 
 <details>
-  <summary>Level 8</summary>
+  <summary>Nivel 8</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level8_paint.png?raw=true" alt="level8">
   <br>
   <br>
 
-**1.** The hosts _Client C_ and _Client D_ will send packets to the internet, then the internet will respond by sending packets all the way back to the initial sender. To send these packets, the internet uses the destination _49.175.13.0/26_ to send the packets to the networks in the range of `49.175.13.0 - 49.175.13.63`.
+**1.** Los hosts _Cliente C_ y _Cliente D_ enviarán paquetes a Internet, luego Internet responderá enviando paquetes hasta el remitente inicial. Para enviar estos paquetes, Internet utiliza el destino _49.175.13.0/26_ para enviar los paquetes a las redes en el rango de `49.175.13.0 - 49.175.13.63`.
 <br>
 <br>
-All the receiving networks must be in this range, without overlapping each other.
+Todas las redes receptoras deben estar en este rango, sin superponerse entre sí.
 <br>
 <br>
 
-**2.** On _Interface R23_ and _Interface R22_ we use the mask _255.255.255.240_ (or _/28_), to conveniently split the range of _/26_ from the destination address, into 4 separate ranges. This separation of 4 is necessary since we have the following 3 networks that must not overlap:
+**2.** En _Interface R23_ y _Interface R22_ usamos la máscara _255.255.255.240_ (o _/28_), para dividir convenientemente el rango de _/26_ de la dirección de destino, en 4 rangos separados. Esta separación de 4 es necesaria ya que tenemos las siguientes 3 redes que no deben superponerse:
 <br>
 
-1. _Router R1_ to _Router R2_.
-2. _Router R2_ to _Client C_.
-3. _Router R2_ to _Client D_.
+1. _Router R1_ al _Router R2_.
+2. _Router R2_ al _Client C_.
+3. _Router R2_ al _Client D_.
 
-Each of these networks can then be attributed one of the following IP ranges with a mask of _/28_:
+A cada una de estas redes se le puede atribuir uno de los siguientes rangos de IP con una máscara de _/28_:
 
 ```
 49.175.13.0 - 49.175.13.15
@@ -578,14 +578,14 @@ Each of these networks can then be attributed one of the following IP ranges wit
 49.175.13.48 - 49.175.13.63
 ```
 
-Note that the network address (first) and the broadcast address (last) must be excluded from each range.
+Tenga en cuenta que la dirección de red (primera) y la dirección de transmisión (última) deben excluirse de cada rango.
 <br>
 <br>
 
-**3.** The destination and next hop for the internet are already entered. We only need to enter the next hop for the _Router R2_, which is the IP on the _Interface R21_.
+**3.** El destino y el próximo salto de Internet ya están ingresados. Solo necesitamos ingresar el siguiente salto para el _Router R2_, que es la IP en la _Interfaz R21_.
 
 <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -594,29 +594,29 @@ Note that the network address (first) and the broadcast address (last) must be e
 ---
 
 <details>
-  <summary>Level 9</summary>
+  <summary>Nivel 9</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level9_paint.png?raw=true" alt="level9">
   <br>
   <br>
 
-This level is quite straightforward since the internet does not initially send its packets to a specific network. Therefore, the separate networks do not need to share a common address range. I would suggest simply following the 6 goals of the level one by one until the level is completed.
+Este nivel es bastante sencillo ya que Internet inicialmente no envía sus paquetes a una red específica. Por lo tanto, no es necesario que las redes separadas compartan un rango de direcciones común. Sugeriría simplemente seguir los 6 objetivos del nivel uno por uno hasta completar el nivel.
 <br>
 <br>
-Remember not to use the network addresses from the reserved private IP ranges.
+Recuerde no utilizar las direcciones de red de los rangos de IP privados reservados.
 <br>
 <br>
 
-**1.** **Goal 3** states that we must connect _meson_ with the _internet_. The _internet_ will then have to respond to _meson_, so we enter _meson's_ network address in the _internet's_ destination.
+**1.** **El objetivo 3** establece que debemos conectar _meson_ con _internet_. Luego, _Internet_ tendrá que responder a _meson_, por lo que ingresamos la dirección de red de _meson_ en el destino de _Internet_.
 <br>
 <br>
-**Goal 6** states that we must connect _cation_ with the _internet_, so we enter _cation's_ network address in the _internet's_ destination.
+**El objetivo 6** establece que debemos conectar _cation_ con _internet_, por lo que ingresamos la dirección de red de _cation_ en el destino de _internet_.
 <br>
 <br>
-It is normal to have an empty field for the 3rd destination of the _internet_, and in _Router R1's_ destination. Not all fields of the routing tables need to be filled.
+Es normal tener un campo vacío para el tercer destino de _internet_, y en el destino del _Router R1_. No es necesario completar todos los campos de las tablas de enrutamiento.
 
   <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
@@ -625,49 +625,48 @@ It is normal to have an empty field for the 3rd destination of the _internet_, a
 ---
 
 <details>
-  <summary>Level 10</summary>
+  <summary>Nivel 10</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level10_paint.png?raw=true" alt="level10">
   <br>
   <br>
 
-At this level, there are 4 different networks:
+En este nivel existen 4 redes diferentes:
 <br>
 
-1. _Router R1_ to _Switch S1_
-2. _Router R1_ to _Router R2_
-3. _Router R2_ to _Client H4_
-4. _Router R2_ to _Client H3_
-   <br>
+1. _Router R1_ al _Switch S1_
+2. _Router R1_ al _Router R2_
+3. _Router R2_ al _Client H4_
+4. _Router R2_ al _Client H3_
+<br>
 
-**1.** The internet must be able to send its packets to all the hosts, so its destination must cover the range of networks of all the hosts.
+**1.** Internet debe poder enviar sus paquetes a todos los hosts, por lo que su destino debe cubrir el rango de redes de todos los hosts.
 <br>
 <br>
 
-_Interface R11_ and _Interface R13_ already have an IP address entered. This IP address only differs in its last byte. _Interface R11_ has for last byte **1**, and _Interface R13_ has for last byte **254**. To cover this wide range to IP addresses, we take a mask of **/24** for the _internet's_ destination. This destination will cover a range of `70.101.30.0 - 70.101.30.255`.
-
-  <br>
-  <br>
-
-**2.** When choosing the IP addresses, we must make sure of 2 things:
+_Interface R11_ y _Interface R13_ ya tienen una dirección IP ingresada. Esta dirección IP sólo se diferencia en su último byte. La _Interfaz R11_ tiene como último byte **1** y la _Interfaz R13_ tiene como último byte **254**. Para cubrir este amplio rango de direcciones IP, tomamos una máscara de **/24** para el destino de Internet. Este destino cubrirá un rango de `70.101.30.0 - 70.101.30.255`.
+<br>
 <br>
 
-1. The IP address is covered by the _internet_ destination.
-2. The IP address range of the various networks does not overlap.
-   <br>
-
-With the IP addresses already entered (greyed out), let's examine the ranges covered by the various networks:
+**2.** A la hora de elegir las direcciones IP debemos asegurarnos de 2 cosas:
 <br>
 
-1. _Router R1_ to _Switch S1_ - Covers the range **70.101.30.0 - 70.101.30.127** (mask /25).
-2. _Router R2_ to _Client H4_ - Covers the range **70.101.30.128 - 70.101.30.191** (mask /26).
-3. _Router R1_ to _Router R2_ - Covers the range **70.101.30.252 - 70.101.30.255** (mask /30).
-4. _Router R2_ to _Client H3_ - ??? (mask ???).
+1. La dirección IP está cubierta por el destino _internet_.
+2. El rango de direcciones IP de las distintas redes no se superpone.
+<br>
 
-The only IP addresses left for the network "Router R2 to Client H3" are **70.101.30.192 - 70.101.30.251**. We can pick any mask that will let us take 2 IP addresses from that range to put in _Interface R22_ and _Interface R31_.
+Con las direcciones IP ya ingresadas (atenuadas), examinemos los rangos cubiertos por las distintas redes:
+<br>
+
+1. _Router R1_ al _Switch S1_ - Cubre el rango **70.101.30.0 - 70.101.30.127** (Máscara /25).
+2. _Router R2_ al _Client H4_ - Cubre el rango **70.101.30.128 - 70.101.30.191** (Máscara /26).
+3. _Router R1_ al _Router R2_ - Cubre el rango **70.101.30.252 - 70.101.30.255** (Máscara /30).
+4. _Router R2_ al _Client H3_ - ??? (Máscara ???).
+
+Las únicas direcciones IP que quedan para la red "Router R2 to Client H3" son **70.101.30.192 - 70.101.30.251**. Podemos elegir cualquier máscara que nos permita tomar 2 direcciones IP de ese rango para colocarlas en _Interfaz R22_ e _Interfaz R31_.
 
   <div align="right">
-  <b><a href="#top">↥ back to top</a></b>
+  <b><a href="#top">↥ volver arriba</a></b>
 </div>
 </br>
 
