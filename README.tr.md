@@ -60,7 +60,7 @@ IP, iletim kontrol protokolünü de içeren bir internet protokol paketinin par�
 
 IP adresleme, ağdaki cihazlara adres atamanın mantıksal bir yoludur. İnternete bağlanan her cihazın benzersiz bir IP adresi olması gerekir.
 
-Bir IP adresinin iki bölümü vardır; bir kısım bilgisayar veya başka bir cihaz gibi ana bilgisayarı tanımlarken, diğer kısım ait olduğu ağı tanımlar. TCP/IP bunları ayırmak için bir [alt ağ maskesi](#alt-ag-maskesi) kullanır.
+Bir IP adresinin iki bölümü vardır; bir kısım bilgisayar veya başka bir cihaz gibi ana bilgisayarı tanımlarken, diğer kısım ait olduğu ağı tanımlar. TCP/IP bunları ayırmak için bir [alt ağ maskesi](#alt-ağ-maskesi) kullanır.
 </br>
 </br>
 
