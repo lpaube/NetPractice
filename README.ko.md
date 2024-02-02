@@ -6,6 +6,14 @@
 
 ---
 
+## 他の言語
+
+[English](README.md)
+<br>
+[French](README.fr.md)
+<br>
+[Turkish](README.tr.md)
+
 ## 목차
 
 - [주요 개념](#주요-개념)
