@@ -18,7 +18,7 @@
 ## İçindekiler
 
 - [Önemli Kavramlar](#önemli-kavramlar)
-  - [TCP](#tcp-iletim-katmanı)
+  - [TCP](#tcp-i̇letim-katmanı)
   - [IP adresi](#ip-adresi-ağ-katmanı)
   - [Alt Ağ Maskesi](#alt-ağ-maskesi)
   - [Anahtar](#anahtar)
