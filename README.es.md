@@ -238,29 +238,29 @@ Una tabla de enrutamiento es una tabla de datos almacenada en un router o host d
 ## Niveles
 
 <details>
-  <summary>Level 1</summary>
+  <summary>Nivel 1</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level1_paint.png?raw=true" alt="level1">
   <br>
   <br>
 
-**1.** Since _Client A_ and _Client B_ are on the same network, their IP address must represent the same network in accordance with the subnet mask.
+**1.** Dado que el _Cliente A_ y el _Cliente B_ están en la misma red, su dirección IP debe representar la misma red de acuerdo con la máscara de subred.
 <br>
-The subnet mask is _255.255.255.0_, which means that the first 3 bytes of the IP address represent the network, and the 4th byte represents the host. Since we are on the same network, only the host can change.
+La máscara de subred es _255.255.255.0_, lo que significa que los primeros 3 bytes de la dirección IP representan la red y el cuarto byte representa el host. Como estamos en la misma red, sólo el host puede cambiar.
 <br>
-The solution will be anything in the range of **104.96.23.0 - 104.96.23.255** excluding the following 3:
+La solución será cualquier valor en el rango de **104.96.23.0 - 104.96.23.255** excluyendo los 3 siguientes:
 
-- **104.96.23.0:** The first number in the range of hosts (0 in this case) represents the network and cannot be used by a host.
-- **104.96.23.255:** The last number in the range of hosts (255 in this case) represents the broadcast address.
-- **104.96.23.12:** This address is already used by the host _Client B_.
+- **104.96.23.0:** El primer número en el rango de hosts (0 en este caso) representa la red y un host no puede utilizarlo.
+- **104.96.23.255:** El último número en el rango de hosts (255 en este caso) representa la dirección de transmisión.
+- **104.96.23.12:** Esta dirección ya la utiliza el host _Cliente B_.
 
-**2.** The same reasoning as _1._, however the subnet mask is _255.255.0.0_ in this case. The first 2 bytes of the IP address will represent the network; and the last 2 bytes, the host address.
+**2.** El mismo razonamiento que _1._, sin embargo, la máscara de subred es _255.255.0.0_ en este caso. Los primeros 2 bytes de la dirección IP representarán la red; y los últimos 2 bytes, la dirección del host.
 <br>
-The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**, excluding:
+La solución será cualquier valor en el rango **211.191.0.0 - 211.191.255.255**, excluyendo:
 
-- **211.191.0.0:** Represents the network address.
-- **211.191.255.255:** Represents the broadcast address.
-- **211.191.89.75:** Already taken by host _Client C_.
+- **211.191.0.0:** Representa la dirección de red.
+- **211.191.255.255:** Representa la dirección de transmisión.
+- **211.191.89.75:** Ya tomado por el host _Cliente C_.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -272,64 +272,64 @@ The solution will be anything in the range of **211.191.0.0 - 211.191.255.255**,
 ---
 
 <details>
-  <summary>Level 2</summary>
+  <summary>Nivel 2</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level2_paint.png?raw=true" alt="level2">
   <br>
   <br>
 
-**1.** Since _Client B_ is on the same private network as _Client A_, they should have the exact same subnet mask.
+**1.** Dado que el _Cliente B_ está en la misma red privada que el _Cliente A_, deben tener exactamente la misma máscara de subred.
 <br>
-The solution can only be **255.255.255.224**.
+La solución sólo puede ser **255.255.255.224**.
 
-**2.** To understand the subnet mask of _255.255.255.224_, let's look at it in binary form, along with the IP _192.168.20.222_ of _Client B_:
+**2.** Para comprender la máscara de subred de _255.255.255.224_, veámosla en forma binaria, junto con la IP _192.168.20.222_ del _Cliente B_:
 
 <center>
 
 ```
-MASK: 11111111.11111111.11111111.11100000
-IP:   11000000.10101000.00010100.11011101
+Máscara: 11111111.11111111.11111111.11100000
+IP:      11000000.10101000.00010100.11011101
 ```
 
 </center>
-As we can see, the first 27 bits represent the IP address, while only the last 5 bits represent the host address.
+Como podemos ver, los primeros 27 bits representan la dirección IP, mientras que sólo los últimos 5 bits representan la dirección del host.
 <br>
-All these 27 bits representing the network must stay the same in the IP addresses of hosts on the same network. To get the answer, we can only change the last 5 bits.
+Todos estos 27 bits que representan la red deben permanecer iguales en las direcciones IP de los hosts de la misma red. Para obtener la respuesta, sólo podemos cambiar los últimos 5 bits.
 <br>
 <br>
-The answer is in the range of:
+La respuesta está en el rango de:
 
 ```
 BIN:  11000000.10101000.00010100.11000000 - 11000000.10101000.00010100.11011111
-or
+o
 DEC:  192.168.20.192 - 192.168.20.223
 ```
 
-Excluding:
+Excluyendo:
 <br>
 
-- **11000000.10101000.00010100.11000000:** Represents the network address (notice all 0 in the last 5 bits).
-- **11000000.10101000.00010100.11011111:** Represents the broadcast address (notice all 1 in the last 5 bits).
-- **11000000.10101000.00010100.11011110:** _Client B_ already has that address.
+- **11000000.10101000.00010100.11000000:** Representa la dirección de red (observe los 0 en los últimos 5 bits).
+- **11000000.10101000.00010100.11011111:** Representa la dirección de transmisión (observe los 1 en los últimos 5 bits).
+- **11000000.10101000.00010100.11011110:** El _Cliente B_ ya tiene esa dirección.
 
-**3.** Here we are introduced the slash "/" notation for the subnet mask on _Interface D1_. A subnet mask of _/30_ means that the first 30 bits of the IP address represent the network address, and the remaining 2 bits represent the host address:
+**3.** Aquí se presenta la notación de barra diagonal "/" para la máscara de subred en la _Interfaz D1_. Una máscara de subred de _/30_ significa que los primeros 30 bits de la dirección IP representan la dirección de red y los 2 bits restantes representan la dirección del host:
 
 <center>
 
 ```
-Mask /30: 11111111.11111111.11111111.11111100
+Máscara /30: 11111111.11111111.11111111.11111100
 ```
 
 </center>
 
-We can see that this binary number corresponds to the decimal _255.255.255.252_, therefore it is identical to the mask found on _Interface C1_.
+Podemos ver que este número binario corresponde al decimal _255.255.255.252_, por lo tanto es idéntico a la máscara que se encuentra en la _Interfaz C1_.
 <br>
 <br>
-The answers can then be any address, as long as they meet the following conditions:
+Las respuestas pueden ser entonces cualquier dirección, siempre que cumplan las siguientes condiciones:
 
-- The network address (first 30 bits) must be identical for _Client D_ and _Client C_.
-- The host bits (last 2 bits) cannot be all 1, nor all 0.
-- _Client D_ and _Client C_ do not have identical IP addresses.
+- La dirección de red (primeros 30 bits) debe ser idéntica para _Cliente D_ y _Cliente C_.
+- Los bits del host (últimos 2 bits) no pueden ser todos 1 ni todos 0.
+- _Cliente D_ y _Cliente C_ no tienen direcciones IP idénticas.
 
 <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -341,20 +341,20 @@ The answers can then be any address, as long as they meet the following conditio
 ---
 
 <details>
-  <summary>Level 3</summary>
+  <summary>Nivel 3</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level3_paint.png?raw=true" alt="level3">
   <br>
   <br>
 
-This exercise introduces the use of the **switch** (_Switch S_ in this example). The switch links multiple hosts of the same network together.
+Este ejercicio presenta el uso del **switch** (_Switch S_ en este ejemplo). El switch vincula varios hosts de la misma red.
 <br>
 <br>
 
-**1.** _Client A_, _Client B_, and _Client C_ are all on the same network. Therefore, they must all have the same subnet mask. Since _Client C_ already has the mask _255.255.255.128_, the mask for _Interface B1_ and for _Interface A1_ will also be _255.255.255.128_ (or in slash notation: _/25_).
+**1.** _Cliente A_, _Cliente B_ y _Cliente C_ están todos en la misma red. Por tanto, todos deben tener la misma máscara de subred. Dado que _Cliente C_ ya tiene la máscara _255.255.255.128_, la máscara para _Interfaz B1_ y para _Interfaz A1_ también será _255.255.255.128_ (o en notación de barra diagonal: _/25_).
 <br>
 <br>
-The IP address of _Interface B1_ and _Interface C1_ must be on the same network range as the IP of _Client A_. This range is:
+La dirección IP de _Interfaz B1_ y _Interfaz C1_ debe estar en el mismo rango de red que la IP del _Cliente A_. Este rango es:
 
   <center>
 
@@ -363,7 +363,7 @@ The IP address of _Interface B1_ and _Interface C1_ must be on the same network 
 ```
 
   </center>
-  Excluding of course the network address and the broadcast address.
+  Excluyendo, por supuesto, la dirección de red y la dirección de transmisión.
 
   <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -375,20 +375,20 @@ The IP address of _Interface B1_ and _Interface C1_ must be on the same network 
 ---
 
 <details>
-  <summary>Level 4</summary>
+  <summary>Nivel 4</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level4_paint.png?raw=true" alt="level4">
   <br>
   <br>
 
-This exercise introduces the **router**. The router is used to link multiple networks together. It does so with the use of multiple interfaces (_Interface R1_, _Interface R2_, and _Interface R3_ in this example).
+Este ejercicio presenta el **router** (enrutador). El router se utiliza para vincular varias redes. Lo hace con el uso de múltiples interfaces (_Interface R1_, _Interface R2_ e _Interface R3_ en este ejemplo).
 <br>
 <br>
 
-**1.** Since none of the masks on _Interface B1_, _Interface A1_, and _Interface R1_ are entered, we are free to choose our own subnet mask. A mask of **/24** is ideal as it leaves us with the entire 4th byte for the host address, and does not require binary calculations to find the range of possible host addresses.
+**1.** Dado que no se ingresa ninguna de las máscaras en _Interfaz B1_, _Interfaz A1_ e _Interfaz R1_, somos libres de elegir nuestra propia máscara de subred. Una máscara de **/24** es ideal ya que nos deja con el cuarto byte completo para la dirección del host y no requiere cálculos binarios para encontrar el rango de posibles direcciones de host.
 <br>
 <br>
-The IP address of _Interface B1_ and _Interface R1_ must have the same network address as the IP address of _Interface A1_. With a subnet of _/24_, the possible range is:
+La dirección IP de _Interfaz B1_ y _Interfaz R1_ debe tener la misma dirección de red que la dirección IP de _Interfaz A1_. Con una subred de _/24_, el rango posible es:
 
   <center>
 
@@ -397,11 +397,11 @@ The IP address of _Interface B1_ and _Interface R1_ must have the same network a
 ```
 
   </center>
-  Excluding the network address and the broadcast address.
+  Excluyendo la dirección de red y la dirección de transmisión.
   <br>
   <br>
 
-Note that we did not interact with the router _Interface R2_ and _Interface R3_, since none of our communications had to reach these sides of the router.
+Tenga en cuenta que no interactuamos con el router _Interface R2_ y _Interface R3_, ya que ninguna de nuestras comunicaciones tenía que llegar a estos lados del router.
 
   <div align="right">
   <b><a href="#top">↥ back to top</a></b>
@@ -413,26 +413,26 @@ Note that we did not interact with the router _Interface R2_ and _Interface R3_,
 ---
 
 <details>
-  <summary>Level 5</summary>
+  <summary>Nivel 5</summary>
   <br>
   <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level5_paint.png?raw=true" alt="level5">
   <br>
   <br>
 
-This level introduces **routes**. A route contains 2 fields, the first one is the **destination** of outbound packets, the second one is the **next hop** of the packets.
+Este nivel presenta **rutas**. Una ruta contiene 2 campos, el primero es el **destino** (destination) de los paquetes salientes, el segundo es el **siguiente salto** (next hop) de los paquetes.
 <br>
 
-The **destination** _default_ is equivalent to _0.0.0.0/0_, which will send the packets indiscriminately to the first network address it encounters. A destination address of _122.3.5.3/24_ would send the packets to the network _122.3.5.0_.
+El **destino** _predeterminado_ es equivalente a _0.0.0.0/0_, que enviará los paquetes indiscriminadamente a la primera dirección de red que encuentre. Una dirección de destino de _122.3.5.3/24_ enviaría los paquetes a la red _122.3.5.0_.
 
   <br>
-  The **next hop** is the IP address of the next  router (or internet) interface to which the interface of the current machine must send its packets.
+  El **siguiente salto** es la dirección IP de la siguiente interfaz del router (o Internet) a la que la interfaz de la máquina actual debe enviar sus paquetes.
   <br>
   <br>
 
-**1.** _Client A_ only has 1 route through which it can send its packets. There is no use specifying a numbered destination. The destination _default_ will send the packets to the only path available.
+**1.** El _Cliente A_ solo tiene 1 ruta a través de la cual puede enviar sus paquetes. No sirve de nada especificar un destino numerado. El destino _predeterminado_ enviará los paquetes a la única ruta disponible.
 <br>
 <br>
-The next hop address must be the IP address of the next router's interface on the packets' way. The next interface is _Interface R1_, with the IP address of _54.117.30.126_. Note that the next interface is not _Interface A1_, since this is the sender's own interface.
+La dirección del siguiente salto debe ser la dirección IP de la interfaz del siguiente router en el camino de los paquetes. La siguiente interfaz es _Interfaz R1_, con la dirección IP de _54.117.30.126_. Tenga en cuenta que la siguiente interfaz no es _Interfaz A1_, ya que es la interfaz del propio remitente.
 
   <div align="right">
   <b><a href="#top">↥ back to top</a></b>
