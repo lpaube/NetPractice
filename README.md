@@ -1,9 +1,5 @@
-![Québec'](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/75/ca/québec.png "Québec")
-
 **Want to see 42 Quebec in 3D?**  
 **:arrow_right: https://mini42qc.vercel.app/ :arrow_left:**
-
-![Québec'](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/75/ca/québec.png "Québec")
 
 # Guide to NetPractice
 
