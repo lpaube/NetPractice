@@ -12,6 +12,8 @@
 [Korean](README.ko.md)
 <br>
 [French](README.fr.md)
+<br>
+[Spanish](README.es.md)
 
 ## Table of Contents
 
