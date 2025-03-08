@@ -1,4 +1,4 @@
-**Want to see 42 Quebec in 3D?**  
+**Want to see 42 Quebec in 3D?**
 **:arrow_right: https://mini42qc.vercel.app/ :arrow_left:**
 
 # Guide to NetPractice
@@ -90,6 +90,16 @@ When a network is connected to the internet, it cannot use an IP address from th
 192.168.0.0 – 192.168.255.255 (65,536 IP addresses)
 172.16.0.0 – 172.31.255.255   (1,048,576 IP addresses)
 10.0.0.0 – 10.255.255.255     (16,777,216 IP addresses)
+```
+
+#### Loopback Address
+
+Loopback addresses are reserved for internal communication (e.g., local testing) and cannot be used as host addresses for network devices.
+
+The following range is reserved for loopback addresses:     
+
+```
+127.0.0.0 – 127.255.255.255     (16,777,216 IP addresses)
 ```
 
 <div align="right">
@@ -240,7 +250,7 @@ A routing table is a data table stored in a router or a network host that lists 
 <details>
   <summary>Level 1</summary>
   <br>
-  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level1_paint.png?raw=true" alt="level1">  
+  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level1_paint.png?raw=true" alt="level1">
   <br>
   <br>
 
@@ -425,7 +435,7 @@ This level introduces **routes**. A route contains 2 fields, the first one is th
 The **destination** _default_ is equivalent to _0.0.0.0/0_, which will send the packets indiscriminately to the first network address it encounters. A destination address of _122.3.5.3/24_ would send the packets to the network _122.3.5.0_.
 
   <br>
-  The **next hop** is the IP address of the next  router (or internet) interface to which the interface of the current machine must send its packets. 
+  The **next hop** is the IP address of the next  router (or internet) interface to which the interface of the current machine must send its packets.
   <br>
   <br>
 
