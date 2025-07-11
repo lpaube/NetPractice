@@ -548,7 +548,7 @@ https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=9
 <details>
   <summary>Level 8</summary>
   <br>
-  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level8_paint.png?raw=true" alt="level8">
+  <img src="img/level8Paint_v2.png" alt="level8">
   <br>
   <br>
 
