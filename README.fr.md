@@ -1,6 +1,3 @@
-> **Tu veux voir 42 Quebec en 3D?**  
-> **:arrow_right: https://mini42qc.vercel.app/ :arrow_left:**
-
 # Guide to NetPractice
 
 ![netpractice logo](img/NetPractice.png)
@@ -549,7 +546,7 @@ https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=28&cip=9
 <details>
   <summary>Niveau 8</summary>
   <br>
-  <img src="https://github.com/LPaube/42_NetPractice/blob/main/img/level8_paint.png?raw=true" alt="level8">
+  <img src="img/level8Paint_v2.png" alt="level8">
   <br>
   <br>
 
