@@ -11,6 +11,8 @@
 [French](README.fr.md)
 <br>
 [Spanish](README.es.md)
+<br>
+[Portuguese](README.pt.md)
 
 ## Table of Contents
 
